@@ -9,7 +9,7 @@ showToc: false
 
 I’m a <i> Software Engineer </i> from <span style="font-size:2.5rem; margin:0.5rem">🇬🇧</span>
 
-I love building, sharing ideas and contributing to open-source.  Writting mainly PHP (Laravel)
+I love building, sharing ideas and contributing to open-source.  Writing mainly PHP (Laravel)
 
 
 For questions, linkups, or coffee:
