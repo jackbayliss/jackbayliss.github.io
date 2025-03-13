@@ -1,4 +1,4 @@
-baseURL = "http://jackbayliss.github.io/"
+baseURL = "https://jackbayliss.github.io"
 languageCode = "en-gb"
 title = "Jack Bayliss"
 theme = "PaperMod"
