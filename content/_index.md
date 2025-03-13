@@ -14,8 +14,6 @@ I love building, sharing ideas and contributing to open-source.  Writting mainly
 
 For questions, linkups, or coffee:
 
-📩 Reach me at [jack@jackbayliss.com](mailto:jack@jackbayliss.com)  
-
 ### Connect with me:  
 [Masterdon](https://phpc.social/@jackbayliss)
 [GitHub](https://github.com/jackbayliss)
