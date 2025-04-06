@@ -43,7 +43,7 @@ $user = User::with('profile')->where('id',X)->first();
 WelcomeEmailJob::dispatch($user);
 ```
 
-The Laravel payload, ends up looking something like the below:
+The Laravel Job payload ends up looking something like the below:
 ```
 {
   "command": "O:30:\"App\\Jobs\\WelcomeEmailJob\":2:{
@@ -94,7 +94,7 @@ class WelcomeEmailJob implements ShouldQueue
 }
 ```
 
-Or, call the withoutRelations method from the model..
+Or, call the `withoutRelations` method from the model..
 ```php 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
