@@ -7,7 +7,7 @@ tags: ['PHP', 'Laravel']
 
 When going through the Laravel Queue documentation, I noticed a section around [Queued Relationships](https://laravel.com/docs/12.x/queues#handling-relationships) and the d-low is that essentially when you're sending a model to a Job, if your model has relationships loaded, those relationships will also get loaded into the payload of the job. This isn't always obvious!
 
-For example, take the below Job as am example:
+For example, take the below Job as an example:
 
 ```php 
 use App\Models\User;
