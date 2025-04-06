@@ -43,10 +43,10 @@ $user = User::with('profile')->where('id',X)->first();
 WelcomeEmailJob::dispatch($user);
 ```
 
-The Laravel Job payload ends up looking something like the below:
+The Laravel Job payload ends up looking something like the below (as a rough example):
 ```
 {
-  "command": "O:30:\"App\\Jobs\\WelcomeEmailJob\":2:{
+  "O:30:\"App\\Jobs\\WelcomeEmailJob\":2:{
     s:16:\"\u0000*\u0000user\";O:45:\"App\\Models\\User\":4:{
       s:10:\"connection\";s:5:\"mysql\";
       s:5:\"table\";s:5:\"users\";
