@@ -8,7 +8,7 @@ showToc: false
 </div>
 
 <div style="text-align: center; font-size: 1.2rem; margin-top: 1rem;">
-  I’m a <i>Software Engineer</i> based in the <span style="font-size: 2.5rem; margin: 0.5rem;">🇬🇧</span> West Midlands.
+  I’m a <i>Software Engineer</i> based in <span style="font-size: 2.5rem; margin: 0.5rem;">🇬🇧</span>, West Midlands.
 </div>
 
 <p style="text-align: center; margin-top: 1rem;">
