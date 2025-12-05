@@ -17,6 +17,8 @@ Every time a queue worker checks for a job, it also checks for:
 - A signal to **restart**
 - A signal to **pause**
 
+This is because you can use the `queue:restart` command to force restart all the queue workers, or the `queue:pause` command to pause individual queues.
+
 The pause and restart signals are dictated by the Cache driver, which in my case is the Database. Redis is much quicker
 at handling this, but to save the extra hits - this could also be useful for you regardless of driver.
 
