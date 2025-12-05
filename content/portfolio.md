@@ -7,7 +7,7 @@ Find below a curated selection of projects I’ve led or contributed to—mostly
 
 ### Johnson Test Papers – Company Website
 A corporate website displaying all products and specifications, dynamically pulled from an SQL database to ensure accurate, up-to-date content.  
-[Visit Site](http://www.johnsontestpapers.com)
+[View on Wayback Machine](https://web.archive.org/web/20230524090835/https://www.johnsontestpapers.com/)
 
 ---
 
@@ -72,12 +72,12 @@ A white-label platform for tracking staff competencies and skills. Built with La
 
 ---
 
-### Dealer Stock Finance Platform
-Was a key developer to a secure inventory finance portal for a fintech company. The platform serves car dealerships and manufacturers with features including stock financing, credit line access, and document submission.  
+### Add Working Capital -  Dealer Stock Finance Platform
+Was a key developer to the secure inventory finance portal for Add Working Capital. The platform serves car dealerships and manufacturers with features including stock financing, credit line access, and document submission.  
 
 ---
 
-### Shopify API & ERP Link
+### Pipekit - Shopify API & ERP System Connection
 Built a custom Shopify integration system syncing over 35,000+ products between a proprietary ERP system and Shopify, product sync, inventory, and order data at scale.
 
 ---
