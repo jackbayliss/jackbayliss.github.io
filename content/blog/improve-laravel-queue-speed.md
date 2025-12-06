@@ -5,6 +5,9 @@ date: 2025-12-03
 tags: ['PHP', 'Laravel']
 ---
 
+> ⚠️ **Note:** This feature is only available in **Laravel v12.41.1 and above**.  
+> If you're running an earlier version, you'll need to upgrade before being able to apply these changes.
+
 I recently discovered our Workers seemed to be hitting the database **far** too frequently. After digging into the `Worker` class, I figured out that it was down to the *restart* and *pause* polling that happens on each loop.
 
 I knew we could override the `CacheManager` class to change this behavior, but that felt… funky. It wasn’t obvious to developers, and it wasn’t really documented anywhere. So — I thought I’d [open a PR](https://github.com/laravel/framework/pull/57975), and luckily for me, it was accepted! 🎉
