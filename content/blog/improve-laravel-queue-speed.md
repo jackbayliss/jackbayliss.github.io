@@ -7,7 +7,7 @@ tags: ['PHP', 'Laravel']
 
 I recently discovered our Workers seemed to be hitting the database **far** too frequently. After digging into the `Worker` class, I figured out that it was down to the *restart* and *pause* polling that happens on each loop.
 
-I knew we could override `CacheManager` to change this behavior, but that felt… funky. It wasn’t obvious to developers, and it wasn’t really documented anywhere. So — I thought I’d [open a PR](https://github.com/laravel/framework/pull/57975), and luckily for me, it was accepted! 🎉
+I knew we could override the `CacheManager` class to change this behavior, but that felt… funky. It wasn’t obvious to developers, and it wasn’t really documented anywhere. So — I thought I’d [open a PR](https://github.com/laravel/framework/pull/57975), and luckily for me, it was accepted! 🎉
 
 
 ## Why Laravel Workers Poll the Cache
