@@ -9,10 +9,10 @@ tags: ['Personal']
 
 ## New role
 
-At pretty much the start of 2025 (very late 2024) I started a new role at Fusions PIM, after wanting to focus on code quality and understanding, rather than having to code against a timer and trying to push things out as fast as possible. While at first, at first I was unsure if it was the right move looking back now I've learnt a lot.
+At pretty much the start of 2025 (very late 2024) I started a new role at Fusions PIM, after wanting to focus on code quality and understanding, rather than having to code against a timer and trying to push things out as fast as possible. While at first I was unsure if it was the right move looking back now I've learnt a lot.
 Perhaps not in the literal sense, but more focusing on quality, and thinking... making sure the PR's I make, and the reviews I leave offer value.
 
-Whilst getting stuck in **very** quickly, I've worked on a lot of large features, and major infrastructure changes. I have a great team surrounding me, which I think is part of the reason I'm able to do what I do (I guess?). 
+Whilst getting stuck in **very** quickly, I've worked on a lot of large features, and major infrastructure changes. I have a great team surrounding me, which I think is part of the reason I'm able to do what I do.
 
 When the team all come together it makes for a better environment. There's nothing worse than having everything land in your lap or having to pick up the slack (I've been there). But, happy to report that isn't the case. 
 
