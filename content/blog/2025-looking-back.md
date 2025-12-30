@@ -32,6 +32,3 @@ I've been a developer for a pretty long time (7-8 years 😱) - but only really 
 I think it really does help getting involved, and I live by the words "The worst they can say is no" it's hard to get knocked down or told no, the main reason why it's useful is it makes you think and look at the bigger picture, ie the "Developer Experience" if you have a pain point the likelihood is someone else is too. 
 
 So, I guess if you're reading this I urge you to get involved, make a PR. Even to some of my repos! It'll help you.
-
-
-
