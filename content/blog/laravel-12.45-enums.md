@@ -23,7 +23,6 @@ This means we can easily change the enum value without having to slug through te
 enum StorageDisk: string
 {
     case Test = 'test';
-    case Public = 'public';
 }
 
 // Before...
