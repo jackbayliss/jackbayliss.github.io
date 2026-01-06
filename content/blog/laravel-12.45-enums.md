@@ -71,4 +71,4 @@ Cache::rememberForever(Deployment::Started, fn() => 'This is pretty cool huh?!')
 # What else is new?
 
 I would recommend reading the [changelogs](https://github.com/laravel/framework/releases/tag/v12.45.0), as there's ALWAYS something new..
-But, as one more shameless plug I added the `QueuePaused` and `QueueResumed` events- so when using the queue:pause, or queue:resume commands the events will be dispatched which means you can subscribe to them and do what you want logic wise ie Slack notications etc.
+But, as one more shameless plug I added the `QueuePaused` and `QueueResumed` events so when using the `queue:pause`, or `queue:resum`e commands the events will be dispatched which means you can subscribe to them and do what you want logic wise ie Slack notifications etc.
