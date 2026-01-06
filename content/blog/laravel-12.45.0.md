@@ -20,6 +20,8 @@ This means we can easily change the enum value without having to slug through te
 
 ### Storage Facade
 
+> [What is the Storage Facade](https://laravel.com/docs/12.x/filesystem#obtaining-disk-instances)
+
 ```php
 enum StorageDisk: string
 {
@@ -29,19 +31,23 @@ enum StorageDisk: string
 // Before...
 
 // Allowed string
- Storage::fake('test');
- // Or, you had to get the ->value if using an enum
- Storage::fake(StorageDisk::Test->value)
- 
- // Same for the `persistentFake` method...
- Storage::persistentFake(StorageDisk::Test->value)
+Storage::fake('test');
+// Or, you had to get the ->value if using an enum
+Storage::fake(StorageDisk::Test->value)
+
+// Same for the `persistentFake` method...
+Storage::persistentFake(StorageDisk::Test->value)
 
 // Now...
- Storage::fake(StorageDisk::Test)
- Storage::persistentFake(StorageDisk::Test)
+Storage::fake(StorageDisk::Test)
+Storage::persistentFake(StorageDisk::Test)
 ```
 
 ### Cache & Session Facade
+
+> [What is the Cache facade](https://laravel.com/docs/12.x/cache#obtaining-a-cache-instance)
+> 
+> [What is the Session facade](https://laravel.com/docs/12.x/session#the-global-session-helper)
 
 ```php
 
@@ -53,9 +59,9 @@ enum Deployment: string
 // Before...
 
 // Allowed string
- Cache::put('test', 1);
- // Or, you had to get the ->value
- Cache::get(Deployment::Started->value)
+Cache::put('test', 1);
+// Or, you had to get the ->value
+Cache::get(Deployment::Started->value)
  
  
 // Now...
@@ -65,8 +71,8 @@ Cache::rememberForever(Deployment::Started, fn() => 'This is pretty cool huh?!')
 
 
 // Same for the Session facade
- Session::put(Deployment::Started, 1);
- Session::get(Deployment::Started);
+Session::put(Deployment::Started, 1);
+Session::get(Deployment::Started);
 ```
 
 # What else is new?
