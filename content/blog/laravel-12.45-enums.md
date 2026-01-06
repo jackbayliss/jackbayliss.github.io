@@ -72,3 +72,10 @@ Cache::rememberForever(Deployment::Started, fn() => 'This is pretty cool huh?!')
 
 I would recommend reading the [changelogs](https://github.com/laravel/framework/releases/tag/v12.45.0), as there's ALWAYS something new..
 But, as one more shameless plug I added the `QueuePaused` and `QueueResumed` events so when using the `queue:pause`, or `queue:resum`e commands the events will be dispatched which means you can subscribe to them and do what you want logic wise ie Slack notifications etc.
+
+
+# What's cooking?
+
+Call me a chef, I got 2 PR's in the 13.x pipeline: 
+- [Ability to set the job queue based on class type](https://github.com/laravel/framework/pull/58094)
+- [Prevent Queue Worker crash is cache store is unavailable](https://github.com/laravel/framework/pull/57257)
