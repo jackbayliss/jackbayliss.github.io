@@ -19,6 +19,7 @@ showToc: false
 <div style="text-align: center; margin-top: 2rem;">
   <strong>Let’s connect – for questions, collaboration, or a coffee ☕:</strong>
   <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+    <li><a href="https://x.com/jackbayliss1996" target="_blank">X</a></li>
     <li><a href="https://phpc.social/@jackbayliss" target="_blank">Mastodon</a></li>
     <li><a href="https://github.com/jackbayliss" target="_blank">GitHub</a></li>
   </ul>
