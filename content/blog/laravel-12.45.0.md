@@ -12,6 +12,7 @@ A lot of methods now accept enums, which I think is pretty cool.
 I did however have a helping hand, so I'm a bit biased
 - [Persistent Cache](https://github.com/laravel/framework/pull/58287)
 - [Cache Facade](https://github.com/laravel/framework/pull/58246)
+- [Queue Paused / Resumed Events](https://github.com/laravel/framework/pull/58202)
 
 The below all have methods that now accept enums, or all of their methods do! 
 
