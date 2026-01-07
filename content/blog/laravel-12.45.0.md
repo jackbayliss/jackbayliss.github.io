@@ -3,6 +3,8 @@ title: "Enums - Enums - Enums - Laravel v12.45"
 showToc: false
 date: 2026-01-06
 tags: ['PHP', 'Laravel']
+aliases:
+  - /blog/laravel-12.45-enums
 ---
 
 With the release of [Laravel v12.45.0](https://github.com/laravel/framework/releases/tag/v12.45.0) it's all about enums! 
