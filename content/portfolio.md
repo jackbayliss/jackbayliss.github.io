@@ -19,7 +19,7 @@ A fully custom e-commerce platform developed using Laravel.
 
 ### Invoice Payment System
 Enabled customers to pay invoices online using Stripe integration.  
-[Visit Site](https://payment.johnsontestpapers.com)
+[View on Wayback Machine](https://web.archive.org/web/20240930071823/https://payment.johnsontestpapers.com/)
 
 ---
 
@@ -37,7 +37,7 @@ A Python bot that automates gameplay through browser spoofing. Website built wit
 
 ### StripCheck
 A digital payment solution allowing businesses to accept payments via browser or mobile app, using Ionic.
-[Visit Site](https://stricard.com)
+[Visit Site](https://stripcheck.app/)
 
 
 ---
@@ -72,12 +72,25 @@ A white-label platform for tracking staff competencies and skills. Built with La
 
 ---
 
+### Board Clever - Estate Agent Management System
+Worked on various features such as reducing mobile uploaded images from 20MB to 2KB.
+[Visit Site](https://boardclever.co.uk/)
+
+---
+
+### On Call portal - Customer Relationship Management
+Implemented various features such as lat/lng calculations for the closest staff members, data exports etc. 
+[Visit Site](https://addworkingcapital.com/)
+
+---
+
 ### Add Working Capital -  Dealer Stock Finance Platform
 Was a key developer to the secure inventory finance portal for Add Working Capital. The platform serves car dealerships and manufacturers with features including stock financing, credit line access, and document submission.  
+[Visit Site](https://addworkingcapital.com/)
 
 ---
 
 ### Pipekit - Shopify API & ERP System Connection
 Built a custom Shopify integration system syncing over 35,000+ products between a proprietary ERP system and Shopify, product sync, inventory, and order data at scale.
-
+[Visit Site](https://www.pipekit.co.uk/)
 ---
