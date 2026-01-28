@@ -50,6 +50,12 @@
   </div>
 
   <footer class="post-footer">
+    <div style="margin-bottom: 2rem">
+      <p>
+        Did you enjoy the post, but have a burning question? <a href="https://x.com/jackbayliss1996" target="_blank">Message me on X</a> I promise I will eventually reply...
+      </p>
+    </div>
+
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
       {{- range ($.GetTerms $tags) }}
