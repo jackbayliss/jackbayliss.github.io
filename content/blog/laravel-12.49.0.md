@@ -18,11 +18,11 @@ Currently, when you want to assert a Job that's been pushed to the queue a certa
         Queue::assertPushed(SomeJob::class, 2);
 ```
 
-But,the second parameter is typed as a callback, which makes it confusing for reviews or anyone that hasn't touched it for awhile
+But,the second parameter is typed as a callback, which makes it confusing for reviews or anyone that hasn't touched it for a while.
 
 <img src="/images/assert-pushed.png" alt="assert pushed">
 
-[I added assertPushedTimes](https://github.com/laravel/framework/pull/58511) so, we can now do the below - which reads more explicit!
+[assertPushedTimes public is now public](https://github.com/laravel/framework/pull/58511) so, we can now do the below - which reads more explicitly!
 
 ```php
         Queue::assertPushedTimes(SomeJob::class, 2);
