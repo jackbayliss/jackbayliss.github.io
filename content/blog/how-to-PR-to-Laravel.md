@@ -51,5 +51,5 @@ The easiest part! Create the PR with an easy-to-follow description and ensure th
 
 ### 8. Wait
 
-Taylor generally goes through PR's daily, but take in time zone. If it's a fairly big PR it could take some time, don't be inpatient.
+Taylor generally goes through PR's daily, but take in to consideration time zone. If it's a fairly big PR it could take some time, don't be inpatient.
 If it gets merged, well done! If it doesn't also well done! Some PRs won't ever make it, and that's fine. It's an iterative process where over time you'll start to figure more and more out!
