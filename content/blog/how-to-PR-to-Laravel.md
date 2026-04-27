@@ -5,7 +5,7 @@ date: 2026-04-27
 tags: ['PHP', 'Laravel']
 ---
 
-I've had a few people message me on Linkedin, of all places?! Asking how to PR to Laravel. There's no "secret method", but I'll outline some great steps to success below. I thought I'd put this out there, as it may not be obvious.
+I've had a few people message me on Linkedin, of all places?! Asking how to PR to Laravel, or for ideas. There's no "secret method", but I'll outline some great steps to success below. I thought I'd put this out there, as it may not be obvious.
 The below isn't a tutorial, so no guarantee it'll work but is generally what I try to follow:
 
 ### 1. Take some time to read the source code
