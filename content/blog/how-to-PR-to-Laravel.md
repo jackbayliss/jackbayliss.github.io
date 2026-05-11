@@ -29,7 +29,7 @@ As long as you can explain the problem, the fix, and why it's a needed... otherw
 
 ## 4. Check over existing PR requests
 
-Go through existing pull requests **including closes PRs**, search for a few matching terms of your idea and ensure it's not been done before. This saves you time trying an idea that may have been tried before, or it may inspire you to take an alternative approach.
+Go through existing pull requests **including closed PRs**, search for a few matching terms of your idea and ensure it's not been done before. This saves you time trying an idea that may have been tried before, or it may inspire you to take an alternative approach.
 
 
 ## 5. The Code
