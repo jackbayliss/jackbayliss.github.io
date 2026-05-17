@@ -1,7 +1,7 @@
 ---
 title: "About"
 keywords: ["Jack Bayliss", "Laravel developer", "PHP developer", "Black Country", "Rowley Regis", "web developer"]
-images: ["/images/me.jpg"]
+images: ["/images/emoji.jpg"]
 showToc: false
 ---
 
