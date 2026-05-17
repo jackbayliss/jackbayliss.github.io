@@ -1,7 +1,6 @@
 ---
-title: "About Jack Bayliss"
+title: "About"
 keywords: ["Jack Bayliss", "Laravel developer", "PHP developer", "Black Country", "Rowley Regis", "web developer"]
-author: "Jack Bayliss"
 images: ["/images/me.jpg"]
 showToc: false
 ---
