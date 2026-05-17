@@ -7,7 +7,6 @@ theme = "PaperMod"
   hideFooter = true
   ShowDate = false
   description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
-  author = "Jack Bayliss"
   images = ["/images/emoji.jpg"]
 
 [params.profileMode]
