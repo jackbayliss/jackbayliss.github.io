@@ -1,6 +1,5 @@
 ---
 title: "About Jack Bayliss"
-description: "Jack Bayliss - PHP and Laravel developer from the Black Country, England. Programming since 2017, car enthusiast, and gym-goer."
 keywords: ["Jack Bayliss", "Laravel developer", "PHP developer", "Black Country", "Rowley Regis", "web developer"]
 author: "Jack Bayliss"
 images: ["/images/me.jpg"]
