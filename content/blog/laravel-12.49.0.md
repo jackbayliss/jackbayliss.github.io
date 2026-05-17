@@ -1,8 +1,9 @@
 ---
 title: "Queue Facade assertPushedTimes  - Laravel v12.49.0"
-showToc: false
+showToc: true
 date: 2026-01-28
-tags: ['PHP', 'Laravel']
+tags: ['PHP', 'Laravel', 'Queue', 'Testing']
+description: "Laravel v12.49.0 introduces Queue::assertPushedTimes() for clearer, explicitly typed queue assertions in tests, and fixes a rare deadlock error on DatabaseLock release under concurrent workers."
 ---
 
 I'm fairly sure by this point Taylor Otwell is more than likely fed up with seeing my face, but it was him that said ["we must ship!"](https://www.youtube.com/shorts/eoxn7Jd571Q)

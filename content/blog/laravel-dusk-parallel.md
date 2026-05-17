@@ -1,8 +1,9 @@
 ---
 title: "Parallel Laravel Dusk Tests"
-showToc: false
+showToc: true
 date: 2026-03-04
-tags: ['PHP', 'Laravel', 'Dusk']
+tags: ['PHP', 'Laravel', 'Dusk', 'Testing', 'Performance']
+description: "Run Laravel Dusk browser tests in parallel using a single ChromeDriver instance to cut your test suite runtime in half without increasing CI costs, with a working demo and package."
 ---
 
 If you've ever used Dusk, you know the following:

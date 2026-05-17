@@ -1,8 +1,9 @@
 ---
 title: "2025, looking back"
-showToc: false
+showToc: true
 date: 2025-12-30
-tags: ['Personal']
+tags: ['Personal', 'Open Source', 'Laravel']
+description: "A personal year-in-review: a new developer role at Fusions PIM, open source contributions to Laravel and Pest, and reflections on a year of big life changes."
 ---
 
 2025 is almost over, so, it's time to look back! 

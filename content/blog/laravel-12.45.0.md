@@ -1,10 +1,11 @@
 ---
 title: "Enums - Enums - Enums - Laravel v12.45"
-showToc: false
+showToc: true
 date: 2026-01-06
-tags: ['PHP', 'Laravel']
+tags: ['PHP', 'Laravel', 'Enums', 'Queue']
 aliases:
   - /blog/laravel-12.45-enums
+description: "Laravel v12.45.0 adds native enum support to the Storage, Cache, and Session facades, plus new QueuePaused and QueueResumed events for the queue:pause and queue:resume commands."
 ---
 
 With the release of [Laravel v12.45.0](https://github.com/laravel/framework/releases/tag/v12.45.0) it's all about enums! 

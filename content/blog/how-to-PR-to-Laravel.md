@@ -1,8 +1,9 @@
 ---
 title: "How to PR to Laravel"
-showToc: false
+showToc: true
 date: 2026-04-27
-tags: ['PHP', 'Laravel']
+tags: ['PHP', 'Laravel', 'Open Source', 'Contributing']
+description: "An 8-step guide to successfully contributing pull requests to the Laravel framework, covering source code familiarity, real-world problem framing, tests, branch targeting, and PR descriptions."
 ---
 
 I've had a few people message me on Linkedin, of all places?! Asking how to PR to Laravel, or for ideas. There's no "secret method", but I'll outline some great steps to success below. I thought I'd put this out there, as it may not be obvious.

@@ -1,8 +1,9 @@
 ---
 title: "Speeding up Laravel Jobs"
-showToc: false
+showToc: true
 date: 2025-04-06
-tags: ['PHP', 'Laravel']
+tags: ['PHP', 'Laravel', 'Queue', 'Performance']
+description: "Learn how to reduce Laravel queue job payload size by stripping loaded Eloquent relationships using the WithoutRelations attribute or withoutRelations() method, improving queue throughput."
 ---
 
 When going through the Laravel Queue documentation, I noticed a section around [Queued Relationships](https://laravel.com/docs/12.x/queues#handling-relationships) and the d-low is that essentially when you're sending a model to a Job, if your model has relationships loaded, those relationships will also get loaded into the payload of the job. This isn't always obvious!

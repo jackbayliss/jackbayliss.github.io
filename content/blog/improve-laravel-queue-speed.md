@@ -1,8 +1,9 @@
 ---
 title: "Improve Laravel Queue Speed"
-showToc: false
+showToc: true
 date: 2025-12-03
-tags: ['PHP', 'Laravel']
+tags: ['PHP', 'Laravel', 'Queue', 'Performance']
+description: "Reduce unnecessary cache hits in Laravel queue workers by disabling interruption polling for restart and pause signals. Available in Laravel v12.41.1 and above."
 ---
 
 > ⚠️ **Note:** This feature is only available in **Laravel v12.41.1 and above**.  
