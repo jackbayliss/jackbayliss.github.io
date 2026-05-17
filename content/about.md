@@ -11,7 +11,7 @@ showToc: false
     <span style="font-size:0.7rem;opacity:0.55;margin-top:0.3rem;display:block">(This is what I look like mid PR....)</span>
   </div>
   <div>
-    <p style="margin:0">Hi, I'm Jack from England in a place called the <a href="https://en.wikipedia.org/wiki/Black_Country">Black Country</a>, specifically <a href="https://en.wikipedia.org/wiki/Rowley_Regis">Rowley Regis</a> … and because of that <a href="https://www.youtube.com/watch?v=wJHa5aN1Uus">some people don't understand what I'm saying</a></p>
+    <p style="margin:0">Hi, I'm Jack from England in a place called the <a href="https://en.wikipedia.org/wiki/Black_Country" target="_blank" rel="noopener noreferrer">Black Country</a>, specifically <a href="https://en.wikipedia.org/wiki/Rowley_Regis" target="_blank" rel="noopener noreferrer">Rowley Regis</a> … and because of that <a href="https://www.youtube.com/watch?v=wJHa5aN1Uus" target="_blank" rel="noopener noreferrer">some people don't understand what I'm saying</a></p>
     <p style="margin:0.5rem 0 0">I've been programming since 2017 mainly in PHP (Laravel), but have dabbled with various frameworks and languages such as Ionic, React Native, JavaScript and Python to name a few.</p>
     <p style="margin:0.5rem 0 0">I like cars, and gym if I'm not programming.</p>
   </div>
