@@ -5,7 +5,7 @@ images: ["/images/me.jpg"]
 showToc: false
 ---
 
-<div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem">
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:1.5rem;margin-bottom:1.5rem">
   <div style="flex-shrink:0;text-align:center">
     <img src="/images/me.jpg" alt="Jack" style="width:140px;height:140px;border-radius:50%;object-fit:cover;display:block">
     <span style="font-size:0.7rem;opacity:0.55;margin-top:0.3rem;display:block">(This is what I look like mid PR....)</span>
