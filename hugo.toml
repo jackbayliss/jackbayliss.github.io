@@ -6,6 +6,12 @@ theme = "PaperMod"
 [params]
   hideFooter = true
   ShowDate = false
+  description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
+  author = "Jack Bayliss"
+  images = ["/images/emoji.jpg"]
+
+[params.profileMode]
+  enabled = false
 
 [menu]
   [[menu.main]]
@@ -14,15 +20,20 @@ theme = "PaperMod"
     url = "/"
     weight = 1
   [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
     identifier = "blog"
     name = "Blog"
     url = "/blog"
-    weight = 2
+    weight = 3
   [[menu.main]]
     identifier = "portfolio"
     name = "Portfolio"
     url = "/portfolio/"
-    weight = 3
+    weight = 4
 
   [markup]
   [markup.goldmark]
