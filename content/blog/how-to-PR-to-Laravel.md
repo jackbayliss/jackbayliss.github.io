@@ -32,25 +32,29 @@ As long as you can explain the problem, the fix, and why it's a needed... otherw
 
 Go through existing pull requests **including closed PRs**, search for a few matching terms of your idea and ensure it's not been done before. This saves you time trying an idea that may have been tried before, or it may inspire you to take an alternative approach.
 
+## 5. Ensure you're not submitting around events
 
-## 5. The Code
+There's a lot of events throughout the year, Laravel Lives, Laracons etc. If you're going to submit a big PR or something that needs to be considered, you need to be mindful of events, ie don't submit it around busy periods, new releases etc. There's a right time to submit things. I tend to leave things in draft until the events are over, as ultimately this gives your PR the best chance, and makes sure you're not bombarding Big T.
+
+
+## 6. The Code
 
 The code should match the existing style generally, ie you're adding methods are they're all Pascal case, it should match. It should feel natural when you look at the code you're adding vs the code that's already there. Think of it as a craft, you wouldn't hammer a nail through glass.
 After you've done that, arguably... the most important part is the tests, you should add a test to prove your code does what's intended. It's easy to copy an existing test and edit it, but again make sure it follows the overall feel, ie if they all use mocks, yours should too.
 Then, make sure your tests pass, as well as the overall file you've added it in (ie be sure we've not created a regression)
 
 
-## 6. Ensure you target the right branch
+## 7. Ensure you target the right branch
 
 The current branch should be targeted if it's **not a breaking change**... what does that mean? Well, if you're editing an Interface (Contract) that's a breaking change, as an example. Ie forcing any existing code to follow the change you've made. 
 If there's no way around the breaking change, you should target master. Google may give you a better breaking change example if you're stuck!
 
-## 7. Create the PR
+## 8. Create the PR
 
 The easiest part! Create the PR with an easy-to-follow description and ensure that CI is passing (ie the tests), if the StyleCI CI item is failing, dont panic.. that's just styling and it will automatically be fixed if Taylor merges your PR. (Or, take its fixes and apply them before hand) 
 
 
-## 8. Wait
+## 9. Wait
 
 Taylor generally goes through PR's daily, but take in to consideration time zone. If it's a fairly big PR it could take some time, don't be impatient.
 If it gets merged, well done! If it doesn't also well done! Some PRs won't ever make it, and that's fine. It's an iterative process where over time you'll start to figure more and more out!
