@@ -1,5 +1,6 @@
 ---
 title: "Portfolio"
+description: "A selection of projects Jack Bayliss has built or contributed to, including Laravel applications, e-commerce platforms, mobile apps, and open-source packages."
 showToc: false
 ---
 

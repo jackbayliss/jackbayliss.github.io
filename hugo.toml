@@ -2,12 +2,15 @@ baseURL = "https://jackbayliss.com/"
 languageCode = "en-gb"
 title = "Jack Bayliss"
 theme = "PaperMod"
+enableRobotsTXT = true
 
 [params]
   hideFooter = true
   ShowDate = false
   description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
-  images = ["/images/emoji.jpg"]
+  images = ["/images/emoji.png"]
+  author = "Jack Bayliss"
+  canonicalURL = true
 
 [params.profileMode]
   enabled = false

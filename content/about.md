@@ -1,7 +1,8 @@
 ---
 title: "About"
+description: "Jack Bayliss is a PHP and Laravel developer from Rowley Regis in the Black Country, England. Laravel contributor, open-source enthusiast."
 keywords: ["Jack Bayliss", "Laravel developer", "PHP developer", "Black Country", "Rowley Regis", "web developer"]
-images: ["/images/emoji.jpg"]
+images: ["/images/emoji.png"]
 showToc: false
 ---
 
