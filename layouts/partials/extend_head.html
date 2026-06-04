@@ -1,1 +1,43 @@
-<style>.post-description,.post-meta{display:none}</style>
+<style>
+.post-description,.post-meta{display:none}
+
+/* burger button — hidden on desktop */
+#burger{display:none;background:none;border:none;padding:4px;cursor:pointer;color:inherit;margin:auto 4px}
+
+@media(max-width:768px){
+    #burger{display:flex;align-items:center;justify-content:center}
+
+    /* stretch logo row so burger sits at the far right */
+    .header .nav{flex-wrap:nowrap}
+    .header .logo{flex:1;justify-content:space-between}
+
+    /* sticky header so fixed menu anchors correctly */
+    .header{position:sticky;top:0;z-index:100}
+
+    /* dropdown — fixed so it tracks the viewport when the page scrolls */
+    #menu{
+        display:none;
+        position:fixed;
+        top:var(--header-height);
+        left:0;
+        right:0;
+        flex-direction:column;
+        background:var(--theme);
+        border-bottom:1px solid var(--border);
+        padding:0 var(--gap) var(--gap);
+        z-index:999;
+        white-space:normal;
+        overflow-x:unset
+    }
+
+    #menu.mobile-open{display:flex}
+
+    #menu li+li{margin-inline-start:0;margin-top:12px}
+
+    /* animate burger → X */
+    #burger.is-open .burger-line-1{transform:translateY(9px) rotate(45deg);transform-origin:center}
+    #burger.is-open .burger-line-2{opacity:0}
+    #burger.is-open .burger-line-3{transform:translateY(-9px) rotate(-45deg);transform-origin:center}
+    #burger svg line{transition:transform .2s ease,opacity .15s ease}
+}
+</style>
