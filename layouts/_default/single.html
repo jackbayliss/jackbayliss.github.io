@@ -43,17 +43,13 @@
   {{- end }}
 
   {{ $filePath := replace .File.Path "\\" "/" }}
-  <div style="margin-top: 2rem; padding: 1rem; border: 1px solid var(--border); border-radius: 4px; background: var(--entry);">
-    <a href="https://github.com/jackbayliss/jackbayliss.github.io/blob/main/content/{{ $filePath }}?plain=1" target="_blank">
-      <p style="margin: 0;"><strong>Found a bug or typo?</strong> Edit this page on GitHub and submit a PR!</p>
-    </a>
+  <div style="margin-top: 2rem;">
+    <a href="https://github.com/jackbayliss/jackbayliss.github.io/blob/main/content/{{ $filePath }}?plain=1" target="_blank" style="font-size:0.78rem;opacity:0.45;text-decoration:none;transition:opacity 0.15s" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='0.45'">Found a bug or typo? Submit a PR on GitHub</a>
   </div>
 
   <footer class="post-footer">
-    <div style="margin-bottom: 2rem">
-      <p>
-        Did you enjoy the post, but have a burning question? <a href="https://x.com/jackbayliss1996" target="_blank">Message me on X</a> I promise I will eventually reply...
-      </p>
+    <div style="margin-bottom:2rem;padding:1rem 1.25rem;border:1px solid var(--border);border-radius:10px;background:var(--entry);font-size:0.9rem;color:var(--secondary);line-height:1.6">
+      Enjoyed the post but have a burning question? <a href="https://x.com/jackbayliss1996" target="_blank" style="color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(59,130,246,0.3)">Message me on X</a>
     </div>
 
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
