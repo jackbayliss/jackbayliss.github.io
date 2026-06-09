@@ -7,10 +7,10 @@
 
 /* ── Design tokens ──────────────────────────────────── */
 :root {
-    --accent:       #3B82F6;
-    --accent-hover: #2563EB;
-    --accent-muted: rgba(59,130,246,0.12);
-    --accent-border: rgba(59,130,246,0.30);
+    --accent:       #8B5CF6;
+    --accent-hover: #7C3AED;
+    --accent-muted: rgba(139,92,246,0.12);
+    --accent-border: rgba(139,92,246,0.30);
     --radius:       10px;
     --ease:         0.18s ease;
 }
@@ -41,43 +41,66 @@ a { transition: color var(--ease), border-color var(--ease); }
 /* ── Nav active link ────────────────────────────────── */
 #menu .active { color: var(--accent) !important; }
 
+/* ── Soft animated mesh background ──────────────────── */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -10%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(139,92,246,0.07), transparent 40%),
+        radial-gradient(circle at 85% 12%, rgba(236,72,153,0.06), transparent 42%),
+        radial-gradient(circle at 50% 95%, rgba(34,197,94,0.05), transparent 45%);
+    filter: blur(60px);
+    animation: meshDrift 28s ease-in-out infinite alternate;
+}
+.dark body::before {
+    background:
+        radial-gradient(circle at 18% 22%, rgba(139,92,246,0.12), transparent 40%),
+        radial-gradient(circle at 85% 12%, rgba(236,72,153,0.10), transparent 42%),
+        radial-gradient(circle at 50% 95%, rgba(34,197,94,0.08), transparent 45%);
+}
+@keyframes meshDrift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(-3%, 2%) scale(1.05); }
+    100% { transform: translate(3%, -2%) scale(1.02); }
+}
+
 /* ── Hero (home page) ───────────────────────────────── */
 .hero {
-    padding: 3rem 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4.5rem 0 3rem;
     text-align: center;
+    animation: heroIn 0.6s ease-out both;
+}
+@keyframes heroIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 .hero-emoji-img {
-    width: 180px;
+    width: 150px;
     height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem;
     user-select: none;
     pointer-events: none;
 }
-.hero-title {
-    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.025em;
-    background: linear-gradient(135deg, var(--primary) 40%, var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0 0 0.5rem;
-}
 .hero-role {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.95rem;
-    color: var(--secondary);
+    font-weight: 500;
+    color: var(--accent);
     margin: 0 0 1.5rem;
     letter-spacing: 0.01em;
 }
+.hero-role::before { content: "> "; opacity: 0.6; }
 .hero-bio {
-    max-width: 520px;
-    margin: 0 auto 2rem;
-    font-size: 0.975rem;
-    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto 2.25rem;
+    font-size: 1.02rem;
+    line-height: 1.85;
     color: var(--secondary);
 }
 .hero-bio a {
@@ -87,44 +110,44 @@ a { transition: color var(--ease), border-color var(--ease); }
     border-bottom: 1px solid var(--accent-border);
 }
 .hero-bio a:hover { border-color: var(--accent); }
+
+/* ── Hero link buttons ──────────────────────────────── */
 .hero-links {
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 .hero-link {
     display: inline-flex;
     align-items: center;
-    padding: 0.65rem 1.6rem;
-    border-radius: 999px;
-    font-size: 0.875rem;
-    font-weight: 500;
+    gap: 0.55rem;
+    padding: 0.8rem 1.85rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
     letter-spacing: 0.01em;
     text-decoration: none !important;
-    border: 1px solid transparent;
-    transition: background var(--ease), border-color var(--ease), box-shadow var(--ease), color var(--ease), transform var(--ease);
+    border: 1px solid var(--border);
+    background: var(--entry);
+    color: var(--primary) !important;
+    transition: border-color var(--ease), transform var(--ease), color var(--ease);
+}
+.hero-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+.hero-link:hover {
+    border-color: var(--accent);
+    color: var(--accent) !important;
+    transform: translateY(-2px);
 }
 .hero-link.primary {
     background: var(--accent);
-    color: #fff !important;
     border-color: var(--accent);
+    color: #fff !important;
 }
 .hero-link.primary:hover {
     background: var(--accent-hover);
     border-color: var(--accent-hover);
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.18);
-    transform: translateY(-1px);
-}
-.hero-link.secondary {
-    background: transparent;
-    color: var(--primary) !important;
-    border-color: var(--border);
-}
-.hero-link.secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent) !important;
-    transform: translateY(-1px);
+    color: #fff !important;
 }
 
 /* ── Portfolio card grid ────────────────────────────── */
@@ -148,7 +171,7 @@ a { transition: color var(--ease), border-color var(--ease); }
 }
 .proj-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 4px 22px rgba(59,130,246,0.11);
+    box-shadow: 0 4px 22px rgba(139,92,246,0.11);
     transform: translateY(-2px);
 }
 .proj-card:hover .proj-card-link { gap: 0.55rem; }
