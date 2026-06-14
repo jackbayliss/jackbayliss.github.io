@@ -24,35 +24,35 @@ showToc: false
 
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;margin-top:1rem">
   <figure style="margin:0">
-    <img src="/images/cars/majesta.jpg" alt="Majesta" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/majesta.jpg" alt="Majesta" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">Toyota Majesta (Japanese Import)</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/mg4.jpg" alt="MG4" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/mg4.jpg" alt="MG4" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">MG4</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/supra.jpg" alt="Supra" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/supra.jpg" alt="Supra" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">Toyota Supra</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/kia-proceed.jpg" alt="Kia ProCeed" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/kia-proceed.jpg" alt="Kia ProCeed" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">Kia ProCeed</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/i30n.jpg" alt="i30N" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/i30n.jpg" alt="i30N" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">Hyundai i30N</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/ibizia-cupra.jpg" alt="Ibiza Cupra" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/ibizia-cupra.jpg" alt="Ibiza Cupra" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">SEAT Ibiza Cupra</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/standard-ibiza.JPG" alt="Ibiza" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/standard-ibiza.JPG" alt="Ibiza" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">SEAT Ibiza</figcaption>
   </figure>
   <figure style="margin:0">
-    <img src="/images/cars/corsa.JPG" alt="Corsa" style="width:100%;height:160px;object-fit:cover;border-radius:8px">
+    <img src="/images/cars/corsa.JPG" alt="Corsa" class="lightbox-img" style="width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer">
     <figcaption style="text-align:center;font-size:0.8rem;margin-top:0.3rem;opacity:0.7">Vauxhall Corsa</figcaption>
   </figure>
 </div>
