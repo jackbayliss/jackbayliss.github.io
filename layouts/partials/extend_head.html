@@ -7,10 +7,10 @@
 
 /* ── Design tokens ──────────────────────────────────── */
 :root {
-    --accent:       #8B5CF6;
-    --accent-hover: #7C3AED;
-    --accent-muted: rgba(139,92,246,0.12);
-    --accent-border: rgba(139,92,246,0.30);
+    --accent:       #10B981;
+    --accent-hover: #059669;
+    --accent-muted: rgba(16,185,129,0.12);
+    --accent-border: rgba(16,185,129,0.30);
     --radius:       10px;
     --ease:         0.18s ease;
 }
@@ -41,6 +41,78 @@ a { transition: color var(--ease), border-color var(--ease); }
 /* ── Nav active link ────────────────────────────────── */
 #menu .active { color: var(--accent) !important; }
 
+/* ── Post content polish ─────────────────────────────── */
+.post-title {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+.post-content h2,
+.post-content h3 {
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+}
+.post-content p {
+    line-height: 1.85;
+}
+.post-content li {
+    line-height: 1.8;
+    margin: 0.25rem 0;
+}
+.post-content blockquote {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-muted);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+.post-content code {
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.post-content pre code { color: inherit; border: none; }
+.post-content table th {
+    color: var(--accent);
+}
+
+/* ── Post list cards & nav active link ──────────────── */
+.post-entry {
+    transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
+}
+.post-entry:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 22px rgba(16,185,129,0.11);
+    transform: translateY(-2px);
+}
+.post-entry:hover .entry-header h2 {
+    color: var(--accent);
+}
+.entry-header h2 {
+    transition: color var(--ease);
+    letter-spacing: -0.01em;
+}
+#menu .active {
+    border-bottom: 2px solid var(--accent) !important;
+}
+
+/* ── Tags ─────────────────────────────────────────────── */
+.post-tags a {
+    color: var(--accent);
+    background: var(--accent-muted);
+    border-color: var(--accent-border);
+    font-weight: 500;
+    transition: background var(--ease), border-color var(--ease);
+}
+.post-tags a:hover {
+    background: var(--accent-border);
+    border-color: var(--accent);
+}
+
 /* ── Soft animated mesh background ──────────────────── */
 body::before {
     content: "";
@@ -49,17 +121,17 @@ body::before {
     z-index: -1;
     pointer-events: none;
     background:
-        radial-gradient(circle at 18% 22%, rgba(139,92,246,0.07), transparent 40%),
-        radial-gradient(circle at 85% 12%, rgba(236,72,153,0.06), transparent 42%),
-        radial-gradient(circle at 50% 95%, rgba(34,197,94,0.05), transparent 45%);
+        radial-gradient(circle at 18% 22%, rgba(16,185,129,0.08), transparent 40%),
+        radial-gradient(circle at 85% 12%, rgba(52,211,153,0.06), transparent 42%),
+        radial-gradient(circle at 50% 95%, rgba(5,150,105,0.05), transparent 45%);
     filter: blur(60px);
     animation: meshDrift 28s ease-in-out infinite alternate;
 }
 .dark body::before {
     background:
-        radial-gradient(circle at 18% 22%, rgba(139,92,246,0.12), transparent 40%),
-        radial-gradient(circle at 85% 12%, rgba(236,72,153,0.10), transparent 42%),
-        radial-gradient(circle at 50% 95%, rgba(34,197,94,0.08), transparent 45%);
+        radial-gradient(circle at 18% 22%, rgba(16,185,129,0.14), transparent 40%),
+        radial-gradient(circle at 85% 12%, rgba(52,211,153,0.10), transparent 42%),
+        radial-gradient(circle at 50% 95%, rgba(5,150,105,0.10), transparent 45%);
 }
 @keyframes meshDrift {
     0%   { transform: translate(0, 0) scale(1); }
@@ -86,16 +158,24 @@ body::before {
     margin: 0 0 1.5rem;
     user-select: none;
     pointer-events: none;
+    filter: drop-shadow(0 16px 32px rgba(16,185,129,0.22));
 }
 .hero-role {
+    display: inline-flex;
+    align-items: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--accent);
+    color: #047857;
+    background: var(--accent-muted);
+    border: 1px solid var(--accent-border);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
     margin: 0 0 1.5rem;
     letter-spacing: 0.01em;
 }
 .hero-role::before { content: "> "; opacity: 0.6; }
+.dark .hero-role { color: var(--accent); }
 .hero-bio {
     max-width: 540px;
     margin: 0 auto 2.25rem;
@@ -171,7 +251,7 @@ body::before {
 }
 .proj-card:hover {
     border-color: var(--accent);
-    box-shadow: 0 4px 22px rgba(139,92,246,0.11);
+    box-shadow: 0 4px 22px rgba(16,185,129,0.11);
     transform: translateY(-2px);
 }
 .proj-card:hover .proj-card-link { gap: 0.55rem; }
@@ -286,5 +366,17 @@ body::before {
     #burger.is-open .burger-line-2{opacity:0}
     #burger.is-open .burger-line-3{transform:translateY(-6px) rotate(-45deg);transform-origin:center}
     #burger svg line{transition:transform .2s ease,opacity .15s ease}
+
+    /* remove the dead space above the hero on mobile */
+    .main:has(.hero){padding-top:0.5rem}
+    .hero{padding:1rem 1rem 2.5rem}
+    .hero-emoji-img{width:140px;margin-bottom:1.25rem}
+    .hero-role{font-size:0.85rem;margin-bottom:1.25rem}
+    .hero-bio{font-size:0.96rem;line-height:1.75;margin-bottom:1.75rem}
+    .hero-link{padding:0.75rem 1.5rem;font-size:0.88rem}
+
+    /* one project per row, tighter padding */
+    .proj-grid{grid-template-columns:1fr;gap:0.75rem}
+    .proj-card{padding:1rem 1.1rem}
 }
 </style>
