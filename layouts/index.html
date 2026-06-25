@@ -4,4 +4,21 @@
   {{ .Content }}
 </div>
 {{- end }}
+
+{{- $posts := where site.RegularPages "Section" "blog" }}
+{{- $posts = $posts | first 3 }}
+{{- if $posts }}
+<section class="recent-posts">
+  <h2 class="recent-posts-heading">Latest Posts</h2>
+  <div class="recent-posts-list">
+    {{- range $posts }}
+    <a href="{{ .Permalink }}" class="recent-post-card">
+      <span class="recent-post-title">{{ .Title }}</span>
+      <span class="recent-post-meta">{{ .Date.Format "2 Jan 2006" }}</span>
+    </a>
+    {{- end }}
+  </div>
+  <a href="/blog/" class="recent-posts-more">All posts &rarr;</a>
+</section>
+{{- end }}
 {{- end }}
