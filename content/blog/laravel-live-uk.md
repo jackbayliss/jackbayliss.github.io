@@ -21,7 +21,7 @@ There was a lot of talk around AI, but my opinion of AI is use it like Google...
 
 ## Actually meeting people
 
-I've been pretty anti-social this year tbh, and going to this conference made me realise, maybe I really should be doing more Laravel conferences. I was also kinda surprised how many people recognized my face. I don't consider myself to be a good programmer, but I'm pretty good at finding gaps. So, that was a bit of a eye-opener. Always the TLDR is I got to meet a bunch of the community, laravel staff and more importantly catch up in REAL LIFE with my team.  
+I've been pretty anti-social this year tbh, and going to this conference made me realise, maybe I really should be doing more Laravel conferences. I was also kinda surprised how many people recognized my face. I don't consider myself to be a great programmer, but I'm pretty good at finding gaps if my catch phrase at the minute. So, that was a bit of a eye-opener. Anyways the TLDR is I got to meet a bunch of the community, laravel staff and more importantly catch up in REAL LIFE with my team.  
 
 We've been working really hard this year, we've probably made the most changes the code base has seen in years pretty smoothly (in terms of big pieces) we've had a lot of moving parts and somehow, it was mostly pain free. (Shout out to Sam)  
 
