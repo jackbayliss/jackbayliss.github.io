@@ -17,13 +17,19 @@ There were many epic talks, and to be honest, I won't go over each one. But, the
 I saw sooooo many people whos face I know from the internet...
 Big man Taylor Otwell, Mathias Hansen of Geocodio, "mortal enemy" Luke Kuzmish, Andy Hinkle, Caleb White and Andrew Mast. I also got to meet many of the Laravel staff team, which is always cool. I realised I'm kind of an introvert, I guess mainly cause I work remotely, but come and speak to me and I open up! I also got to speak to a lot of US companies and other developers I don't know, whether it companies introducing themselves, discussions around Planetscale, how to do a PR, or generally what people are using Laravel for it was all awesome conversations.
 
+<img src="/images/me-n-taylor.jpg" alt="Me and Taylor Otwell" width="320">
+
 ## USA, USA!
 
-I used Laracon as an excuse to take some holiday, and also took the Mrs, It was my first time in the states, and one of the longest flights of my life. (I'm a pretty bad flyer) But, Boston was awesome. I think I'd definitely go back, I still can't quite get my head around that fact a Big Gulp is $1.75 for like a litre. I got to eat all the food we don't get over here, Cheesecake Factory, Raising Canes... And Jersey Mikes. I must say the food was pretty good, though everything feels way expensive compared to here in the UK.  
+I used Laracon as an excuse to take some holiday, and also took the Mrs, It was my first time in the states, and one of the longest flights of my life. (I'm a pretty bad flyer) But, Boston was awesome. I think I'd definitely go back, I still can't quite get my head around that fact a Big Gulp is $1.75 for like a litre. I got to eat all the food we don't get over here, Cheesecake Factory, Raising Canes... And Jersey Mikes. I must say the food was pretty good, though everything feels way expensive compared to here in the UK.
+
+<img src="/images/jersey-mikes.jpg" alt="Jersey Mikes" width="320">
 
 ## Obsession
 
 I find when I go on Holiday I need to see what the team back in England are doing, and find myself dipping in and leaving a few comments here and there. Its the same for the Laravel Framework, one of the nights I found myself sorting a Monolog issue, which I probably could of left for someone else to pickup. I guess my thinking is, if not me, then who else? Though, I tried to refrain! I guess this is just a note to say, I did actually enjoy the holiday and Laracon.
+
+<img src="/images/me-on-stage.jpg" alt="Me on stage" width="320">
 
 ## Takeaways
 
