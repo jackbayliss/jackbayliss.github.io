@@ -22,11 +22,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Install optimizers
+        run: sudo apt-get update && sudo apt-get install -y jpegoptim optipng
+
       - name: Optimize images
-        uses: calibreapp/image-actions@main
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          compressOnly: true
+        run: |
+          find static/images -iname '*.jpg' -o -iname '*.jpeg' | xargs -r jpegoptim --max=85 --strip-all
+          find static/images -iname '*.png' | xargs -r optipng -o2
 
       - name: Commit optimized images
         uses: stefanzweifel/git-auto-commit-action@v7
