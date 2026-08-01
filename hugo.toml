@@ -3,6 +3,7 @@ languageCode = "en-gb"
 title = "Jack Bayliss"
 theme = "PaperMod"
 enableRobotsTXT = true
+timeZone = "Europe/London"
 
 [params]
   hideFooter = true

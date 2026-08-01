@@ -23,7 +23,7 @@ I used Laracon as an excuse to take some holiday, and also took the Mrs, It was 
 
 ## Obsession
 
-I find when I go on Holiday I need to see what the team back in England are doing, and find myself dipping in and leaving a few comments here and there. Its the same for the Laravel Framework, one of the nights I found myself sorting a Monolog issue, which I probably could of left for someone else to pickup. I guess my thinking is, if not me, then who else? Though, I tried to refrain!
+I find when I go on Holiday I need to see what the team back in England are doing, and find myself dipping in and leaving a few comments here and there. Its the same for the Laravel Framework, one of the nights I found myself sorting a Monolog issue, which I probably could of left for someone else to pickup. I guess my thinking is, if not me, then who else? Though, I tried to refrain! I guess this is just a note to say, I did actually enjoy the holiday and Laracon.
 
 ## Takeaways
 
