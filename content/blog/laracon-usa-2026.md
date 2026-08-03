@@ -15,7 +15,7 @@ There were many epic talks, and to be honest, I won't go over each one. But ther
 ## Meeting people
 
 I saw sooooo many people whose faces I know from the internet...
-Big man Taylor Otwell, Mathias Hansen of Geocodio, "mortal enemy" Luke Kuzmish, Andy Hinkle, Caleb White and Andrew Mast. I also got to meet many of the Laravel staff team, which is always cool. I realised I'm kind of an introvert - I guess mainly because I work remotely - but come and speak to me and I open up! I also got to speak to a lot of US companies and other developers I don't know, whether that was companies introducing themselves, discussions around Planetscale, how to do a PR, or generally what people are using Laravel for. It was all awesome conversations.
+Big man Taylor Otwell, Mathias Hansen of Geocodio, "mortal enemy" Luke Kuzmish, Andy Hinkle, Caleb White and Andrew Mast to name a few (If I missed your name its nothing personal just cant name everyone!). I also got to meet many of the Laravel staff team, which is always cool. I realised I'm kind of an introvert - I guess mainly because I work remotely - but come and speak to me and I open up! I also got to speak to a lot of US companies and other developers I don't know, whether that was companies introducing themselves, discussions around Planetscale, how to do a PR, or generally what people are using Laravel for. It was all awesome conversations.
 
 <img src="/images/me-n-taylor.jpg" alt="Me and Taylor Otwell" width="320">
 
