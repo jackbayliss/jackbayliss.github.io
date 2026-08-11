@@ -14,7 +14,7 @@ I am a maintainer for [laravel-dom-assertions](https://github.com/sinnbeck/larav
 Essentially, The .gitattributes file is a text file in Git that defines how specific files in a repository should be handled, such as how they're exported, and what line endings to use etc..
 
 Here's an example:
-```
+```md
 # for every file (*), automatically detect whether it's text or binary, and if it's text, normalize its line endings
 * text=auto
 
