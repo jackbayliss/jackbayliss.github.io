@@ -54,11 +54,11 @@ Passionate about building cool things, sharing ideas, and contributing to open-s
 </li>
 <li class="timeline-item">
 <span class="timeline-year">2023</span>
-<span class="timeline-text">Joined an agency, grinding Laravel, financial systems etc.</span>
+<span class="timeline-text">Joined an agency, grinding Laravel, financial systems etc</span>
 </li>
 <li class="timeline-item">
 <span class="timeline-year">2024&ndash;Now</span>
-<span class="timeline-text">Working on systems powering England's 3rd largest supermarket &middot; open-source on the side</span>
+<span class="timeline-text">Working on systems powering England's 3rd largest supermarket</span>
 </li>
 </ol>
 </div>
