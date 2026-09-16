@@ -1,5 +1,25 @@
 <script>
 (function () {
+    var clock = document.getElementById('hero-clock');
+    if (!clock) return;
+    // I'm always on BST (UTC+1), regardless of the visitor's own clock.
+    var MY_OFFSET_MINUTES = -60;
+    function tick() {
+        var diff = (new Date().getTimezoneOffset() - MY_OFFSET_MINUTES) / 60;
+        var rounded = Math.round(diff * 2) / 2;
+        if (rounded === 0) {
+            clock.textContent = "I'm in the same time zone as you";
+        } else {
+            clock.textContent = "I'm " + Math.abs(rounded) + 'h ' + (rounded > 0 ? 'ahead of you' : 'behind you');
+        }
+    }
+    tick();
+    setInterval(tick, 1000 * 60 * 30);
+})();
+</script>
+
+<script>
+(function () {
     document.querySelectorAll('.lightbox-img').forEach(function (img) {
         img.addEventListener('click', function () {
             var overlay = document.createElement('div');

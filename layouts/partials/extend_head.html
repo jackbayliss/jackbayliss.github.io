@@ -54,10 +54,15 @@ a { transition: color var(--ease), border-color var(--ease); }
     font-weight: 700;
     letter-spacing: -0.01em;
 }
-.post-content h2,
-.post-content h3 {
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--border);
+.post-content h2:not(.card-heading)::after,
+.post-content h3:not(.card-heading)::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 3px;
+    margin-top: 0.6rem;
+    border-radius: 2px;
+    background: var(--accent);
 }
 .post-content p {
     line-height: 1.85;
@@ -76,6 +81,14 @@ a { transition: color var(--ease), border-color var(--ease); }
     border: 1px solid var(--border);
 }
 .post-content pre code { color: inherit; border: none; }
+/* dark mode's --code-block-bg happens to equal the card's --entry
+   background, so code blocks need their own border to stay legible
+   as a distinct block rather than blending into the card. The block
+   itself is always dark-skinned regardless of site theme, so a
+   light overlay border works consistently in both. */
+.post-content .highlight:not(table) {
+    border: 1px solid rgba(255,255,255,0.08);
+}
 .post-content table th {
     color: var(--accent);
 }
@@ -139,49 +152,110 @@ body::before {
     100% { transform: translate(3%, -2%) scale(1.02); }
 }
 
-/* ── Hero (home page) ───────────────────────────────── */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4.5rem 0 3rem;
-    text-align: center;
-    animation: heroIn 0.6s ease-out both;
+/* ── Home page: cards ─────────────────────────────────── */
+.card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.1rem 2.2rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 20px rgba(0,0,0,0.05);
+    animation: heroIn 0.5s ease-out both;
 }
+.dark .card {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* ── Post footer notes ────────────────────────────────── */
+.post-footer { margin-top: 2rem; }
+.post-note {
+    padding-top: 1.25rem;
+    margin: 0 0 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--secondary);
+    line-height: 1.6;
+}
+.dark .post-note { border-top-color: rgba(255,255,255,0.08); }
+.post-note a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-border);
+}
+.post-note a:hover { border-color: var(--accent); }
+.post-note-muted {
+    padding-top: 0;
+    border-top: none;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+.post-note-muted a { color: inherit; border-bottom-color: var(--border); }
+.post-note-muted:hover { opacity: 0.85; }
 @keyframes heroIn {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+h2.card-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.1rem;
+    padding: 0;
+    border: none;
+}
+
+/* ── Home page: two-column layout ────────────────────── */
+.main:has(.home-columns) {
+    max-width: min(980px, calc(100vw - 2 * var(--gap)));
+}
+.home-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+    margin: 2.5rem 0;
+}
+.home-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Profile card ─────────────────────────────────────── */
 .hero-emoji-img {
-    width: 200px;
+    width: 104px;
     height: auto;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
     user-select: none;
     pointer-events: none;
-    filter: drop-shadow(0 16px 32px rgba(16,185,129,0.22));
+    filter: drop-shadow(0 10px 20px rgba(16,185,129,0.18));
 }
-.hero-role {
-    display: inline-flex;
-    align-items: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+h1.profile-name {
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.4rem;
+    padding: 0;
+    border: none;
+}
+.profile-role {
+    font-size: 1.05rem;
     font-weight: 500;
-    color: #047857;
-    background: var(--accent-muted);
-    border: 1px solid var(--accent-border);
-    border-radius: 999px;
-    padding: 0.4rem 1rem;
-    margin: 0 0 1.5rem;
-    letter-spacing: 0.01em;
+    color: var(--primary);
+    margin: 0 0 0.35rem;
 }
-.hero-role::before { content: "> "; opacity: 0.6; }
-.dark .hero-role { color: var(--accent); }
-.hero-bio {
-    max-width: 540px;
-    margin: 0 auto 2.25rem;
-    font-size: 1.02rem;
-    line-height: 1.85;
+.profile-clock {
+    font-size: 0.9rem;
     color: var(--secondary);
+    margin: 0 0 1.4rem;
+}
+.hero-bio {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--secondary);
+    margin: 0;
 }
 .hero-bio a {
     color: var(--accent);
@@ -191,53 +265,47 @@ body::before {
 }
 .hero-bio a:hover { border-color: var(--accent); }
 
-/* ── Hero tech stack pills ──────────────────────────── */
-.hero-stack {
+/* ── Profile card footer (buttons) ───────────────────── */
+.profile-footer {
     display: flex;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+.profile-footer .hero-link {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 0 0 2rem;
-}
-.hero-stack span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--secondary);
-    background: var(--entry);
     border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.3rem 0.8rem;
-    transition: color var(--ease), border-color var(--ease);
+    border-radius: 10px;
+    background: var(--theme);
+    padding: 0;
 }
-.hero-stack span:hover {
-    color: var(--accent);
-    border-color: var(--accent-border);
-}
+.profile-footer .hero-link-label { display: none; }
+.profile-footer .hero-link svg { width: 20px; height: 20px; }
+.dark .profile-footer .hero-link { border-color: rgba(255,255,255,0.08); }
+.profile-footer .hero-link:hover { background: var(--accent-muted); border-color: var(--accent-border); transform: none; }
+.profile-footer .hero-link.primary { background: var(--accent-muted); border-color: var(--accent-border); color: var(--accent) !important; }
+.profile-footer .hero-link.primary:hover { background: var(--accent-muted) !important; border-color: var(--accent) !important; color: var(--accent) !important; }
 
 /* ── Hero link buttons ──────────────────────────────── */
-.hero-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-.hero-link {
+.post-content .hero-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    padding: 0.8rem 1.85rem;
-    border-radius: 12px;
-    font-size: 0.9rem;
+    gap: 0.5rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.01em;
     text-decoration: none !important;
     border: 1px solid var(--border);
-    background: var(--entry);
+    background: var(--theme);
     color: var(--primary) !important;
     transition: border-color var(--ease), transform var(--ease), color var(--ease);
 }
-.hero-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+.hero-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+.hero-link-label { white-space: nowrap; }
 .hero-link:hover {
     border-color: var(--accent);
     color: var(--accent) !important;
@@ -252,6 +320,40 @@ body::before {
     background: var(--accent-hover);
     border-color: var(--accent-hover);
     color: #fff !important;
+}
+
+/* ── Now card ─────────────────────────────────────────── */
+.now-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--secondary);
+    margin: 0;
+}
+
+/* ── Timeline (home page) ───────────────────────────── */
+.timeline-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.timeline-item {
+    display: flex;
+    gap: 1.1rem;
+    padding: 0.55rem 0;
+}
+.timeline-item + .timeline-item { border-top: 1px solid var(--border); }
+.dark .timeline-item + .timeline-item { border-top-color: rgba(255,255,255,0.08); }
+.timeline-year {
+    flex-shrink: 0;
+    width: 5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+.timeline-text {
+    font-size: 0.96rem;
+    line-height: 1.55;
+    color: var(--secondary);
 }
 
 /* ── Portfolio card grid ────────────────────────────── */
@@ -379,44 +481,25 @@ body::before {
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
-/* ── Recent posts (home page) ───────────────────────── */
-.recent-posts {
-    margin: 3rem 0 2rem;
-}
-.recent-posts-heading {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--secondary);
-    text-transform: uppercase;
-    font-family: 'JetBrains Mono', monospace;
-    margin: 0 0 1rem;
-}
+/* ── Recent posts list (used inside .posts-card) ─────── */
 .recent-posts-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 }
-.recent-post-card {
+.post-content .recent-post-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.85rem 1.1rem;
-    background: var(--entry);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    padding: 0.85rem 0;
     text-decoration: none !important;
+    border-bottom: none;
     color: inherit !important;
-    transition: border-color var(--ease), box-shadow var(--ease), transform var(--ease);
 }
-.recent-post-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 22px rgba(16,185,129,0.11);
-    transform: translateY(-2px);
-}
+.recent-post-card + .recent-post-card { border-top: 1px solid var(--border); }
+.dark .recent-post-card + .recent-post-card { border-top-color: rgba(255,255,255,0.08); }
 .recent-post-title {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     font-weight: 600;
     color: var(--primary);
     transition: color var(--ease);
@@ -426,18 +509,19 @@ body::before {
 }
 .recent-post-meta {
     flex-shrink: 0;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-family: 'JetBrains Mono', monospace;
     color: var(--secondary);
     white-space: nowrap;
 }
-.recent-posts-more {
+.post-content .recent-posts-more {
     display: inline-block;
     margin-top: 1rem;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--accent) !important;
     text-decoration: none !important;
+    border-bottom: none;
     transition: gap var(--ease);
 }
 .recent-posts-more:hover { opacity: 0.8; }
@@ -483,16 +567,14 @@ body::before {
     #burger.is-open .burger-line-3{transform:translateY(-6px) rotate(-45deg);transform-origin:center}
     #burger svg line{transition:transform .2s ease,opacity .15s ease}
 
-    /* remove the dead space above the hero on mobile */
-    .main:has(.hero){padding-top:0.5rem}
-    .hero{padding:1rem 1rem 2.5rem}
-    .hero-emoji-img{width:140px;margin-bottom:1.25rem}
-    .hero-role{font-size:0.85rem;margin-bottom:1.25rem}
-    .hero-bio{font-size:0.96rem;line-height:1.75;margin-bottom:1.75rem}
-    .hero-link{padding:0.75rem 1.5rem;font-size:0.88rem}
+    /* remove the dead space above the cards on mobile */
+    .main:has(.home-columns){padding-top:0.5rem}
+    .home-columns{grid-template-columns:1fr;margin:1.5rem 0}
+    .card{padding:1.35rem 1.4rem}
 
     /* one project per row, tighter padding */
     .proj-grid{grid-template-columns:1fr;gap:0.75rem}
     .proj-card{padding:1rem 1.1rem}
 }
+
 </style>

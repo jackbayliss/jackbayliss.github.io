@@ -1,24 +1,18 @@
 {{- define "main" }}
-{{- if .Content }}
-<div class="post-content">
-  {{ .Content }}
-</div>
-{{- end }}
-
 {{- $posts := where site.RegularPages "Section" "blog" }}
 {{- $posts = $posts | first 3 }}
+{{- $postsHTML := "" }}
 {{- if $posts }}
-<section class="recent-posts">
-  <h2 class="recent-posts-heading">Latest Posts</h2>
-  <div class="recent-posts-list">
-    {{- range $posts }}
-    <a href="{{ .Permalink }}" class="recent-post-card">
-      <span class="recent-post-title">{{ .Title }}</span>
-      <span class="recent-post-meta">{{ .Date.Format "2 Jan 2006" }}</span>
-    </a>
-    {{- end }}
-  </div>
-  <a href="/blog/" class="recent-posts-more">All posts &rarr;</a>
-</section>
+{{- $postsHTML = `<section class="card"><h2 class="card-heading">Latest Posts</h2><div class="recent-posts-list">` }}
+{{- range $posts }}
+{{- $postsHTML = printf `%s<a href="%s" class="recent-post-card"><span class="recent-post-title">%s</span><span class="recent-post-meta">%s</span></a>` $postsHTML .Permalink (htmlEscape .Title) (.Date.Format "2 Jan 2006") }}
+{{- end }}
+{{- $postsHTML = printf `%s</div><a href="/blog/" class="recent-posts-more">All posts &rarr;</a></section>` $postsHTML }}
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{ replace .Content "<!--LATEST_POSTS-->" $postsHTML | safeHTML }}
+</div>
 {{- end }}
 {{- end }}
