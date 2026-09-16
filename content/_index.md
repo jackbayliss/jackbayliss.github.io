@@ -34,7 +34,7 @@ Passionate about building cool things, sharing ideas, and contributing to open-s
 <div class="home-col">
 <div class="card">
 <h2 class="card-heading">Now</h2>
-<p class="now-text">Building and maintaining systems that power England's 3rd largest supermarket, while chipping away at Laravel open-source on the side.</p>
+<p class="now-text">Building and maintaining systems that power England's 3rd largest supermarket, while chipping away at open-source on the side.</p>
 </div>
 
 <div class="card">
