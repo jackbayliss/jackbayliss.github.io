@@ -2,7 +2,7 @@
 {{- if or (not $excerpt) (hasPrefix (lower .Title) (lower (strings.TrimSuffix "." $excerpt))) }}
 {{- $excerpt = .Summary | plainify | htmlUnescape }}
 {{- end }}
-<li>
+<li data-tags="{{ range .Params.tags }}{{ lower (urlize .) }} {{ end }}">
   <a href="{{ .Permalink }}" class="post-row">
     <span class="post-row-body">
       <span class="post-row-title">{{ .Title }}</span>

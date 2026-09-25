@@ -7,6 +7,14 @@
   </h1>
 </header>
 
+{{- $topics := where site.Taxonomies.tags.ByCount "Name" "ne" "php" }}
+<nav class="topic-filter" aria-label="Filter by topic" data-topics>
+  <button type="button" class="chip is-active" data-topic="">All · {{ len .RegularPages }}</button>
+  {{- range first 5 $topics }}
+  <button type="button" class="chip" data-topic="{{ lower (urlize .Name) }}">{{ .Page.Title }} · {{ .Count }}</button>
+  {{- end }}
+</nav>
+
 {{- range .RegularPages.GroupByDate "2006" }}
 <section class="section archive-year">
   <h2 class="label">{{ .Key }}</h2>

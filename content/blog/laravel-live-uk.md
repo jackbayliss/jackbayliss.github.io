@@ -3,7 +3,7 @@ title: "Laravel Live London 2026"
 showToc: false
 date: "2026-06-25"
 tags: ['PHP', 'Laravel', 'Laravel Live']
-description: "Laravel Live London 2026."
+description: "Laravel Live UK: value objects, metaprogramming, static analysis and finally meeting people in real life."
 ---
 
 So, last week I got the glory of attending my second Laravel event, this one being Laravel Live UK. 

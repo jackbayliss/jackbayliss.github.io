@@ -1,0 +1,46 @@
+{{- define "main" }}
+{{- $live := where .Params.projects "status" "live" }}
+{{- $archived := where .Params.projects "status" "archived" }}
+
+<header class="page-intro">
+  <span class="label">{{ .Title }}</span>
+  <h1 class="page-intro-title">{{ .Params.intro | safeHTML }}</h1>
+</header>
+
+<section class="section">
+  <h2 class="label"><span class="dot" aria-hidden="true"></span>Live · {{ len $live }}</h2>
+  <ul class="project-grid">
+    {{- range $live }}
+    <li>
+      <a href="{{ .url }}" class="project-card" target="_blank" rel="noopener">
+        <span class="project-name">{{ .name }}</span>
+        <span class="project-description">{{ .description }}</span>
+        {{- with .stack }}
+        <span class="project-stack">
+          {{- range . }}<span>{{ . }}</span>{{ end -}}
+        </span>
+        {{- end }}
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="label">Archived · {{ len $archived }}</h2>
+  <ul class="post-list">
+    {{- range $archived }}
+    <li>
+      <a href="{{ .url }}" class="post-row" target="_blank" rel="noopener">
+        <span class="post-row-body">
+          <span class="post-row-title">{{ .name }}</span>
+          <span class="post-row-excerpt">{{ .description }}</span>
+        </span>
+        <span class="label">View archive &nearr;</span>
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+
+{{- end }}

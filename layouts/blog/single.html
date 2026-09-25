@@ -3,14 +3,30 @@
 <article class="post">
   <aside class="post-aside">
     <a href="{{ "blog/" | absURL }}" class="label">&larr; All posts</a>
-    <time class="label" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+    <span class="post-meta-list">
+      <time class="label" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+      <span class="label">{{ .ReadingTime }} min read</span>
+    </span>
+
+    {{- if and (.Param "ShowToc") (gt (len .Fragments.Identifiers) 0) }}
+    <div class="post-toc" data-toc>
+      <span class="label">On this page</span>
+      {{ .TableOfContents }}
+    </div>
+    {{- end }}
   </aside>
 
   <div class="post-body">
     <h1 class="post-title">{{ .Title }}</h1>
 
-    {{- if (.Param "ShowToc") }}
-    {{- partial "toc.html" . }}
+    {{- with .GetTerms "tags" }}
+    <ul class="post-tags">
+      {{- range . }}
+      {{- if ne (lower .LinkTitle) "php" }}
+      <li><a href="{{ .RelPermalink }}" class="chip">{{ .LinkTitle }}</a></li>
+      {{- end }}
+      {{- end }}
+    </ul>
     {{- end }}
 
     <div class="post-content">

@@ -3,7 +3,7 @@ title: "Laracon USA 2026"
 showToc: false
 date: "2026-08-02"
 tags: ['PHP', 'Laravel', 'Laracon 2026', 'Laracon USA 2026']
-description: "Laracon USA 2026."
+description: "My first Laracon USA: talks on AI and abstractions, meeting the community, and a lot of Boston food."
 ---
 
 So, Laracon USA was only a few days ago, if you haven't had chance to watch it check out [Day 1](https://www.youtube.com/watch?v=0P-VMS7JMQY) and [Day 2](https://www.youtube.com/watch?v=vii6P0vJhTw)

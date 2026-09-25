@@ -5,7 +5,7 @@
 - year: "2020"
   text: Director of an IT company.
 - year: "2023"
-  text: Agency work, Laravel applications, lead dev for fintech software
-- year: 2024, now
+  text: Agency work, Laravel applications, lead dev for fintech software.
+- year: Since 2024
   text: Supermarket systems, at serious scale.
   current: true

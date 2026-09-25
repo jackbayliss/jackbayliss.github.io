@@ -233,10 +233,13 @@
             if (!e.target.closest('a')) footer.classList.toggle('is-lit');
         });
 
+        // Start with the first few lines already written, so the footer is never empty.
+        var head = source.split('\n').slice(0, 9).join('\n').length;
+
         if (reducedMotion) {
             reveal(chars.length);
         } else {
-            var length = 0;
+            var length = head;
 
             var type = function () {
                 length += 1;
@@ -247,13 +250,15 @@
                 }
 
                 setTimeout(function () {
-                    length = 0;
+                    length = head;
                     reset();
+                    reveal(head);
                     setTimeout(type, 800);
                 }, 5000);
             };
 
             reset();
+            reveal(head);
 
             new IntersectionObserver(function (entries, observer) {
                 if (!entries[0].isIntersecting) return;
@@ -335,6 +340,65 @@
 
             footer.addEventListener('pointerleave', release);
         }
+    }
+
+    /*
+     * Highlight the section you're reading in a post's "On this page" list.
+     */
+    var toc = document.querySelector('[data-toc]');
+
+    if (toc && 'IntersectionObserver' in window) {
+        var links = {};
+
+        toc.querySelectorAll('a[href^="#"]').forEach(function (link) {
+            links[decodeURIComponent(link.hash.slice(1))] = link;
+        });
+
+        var current = null;
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting || !links[entry.target.id]) return;
+                if (current) current.classList.remove('is-current');
+                current = links[entry.target.id];
+                current.classList.add('is-current');
+            });
+        }, { rootMargin: '0px 0px -70% 0px' });
+
+        Object.keys(links).forEach(function (id) {
+            var heading = document.getElementById(id);
+            if (heading) observer.observe(heading);
+        });
+    }
+
+    /*
+     * Filter the blog list by topic.
+     */
+    var topics = document.querySelector('[data-topics]');
+
+    if (topics) {
+        topics.addEventListener('click', function (e) {
+            var button = e.target.closest('[data-topic]');
+            if (!button) return;
+
+            var topic = button.dataset.topic;
+
+            topics.querySelectorAll('[data-topic]').forEach(function (chip) {
+                chip.classList.toggle('is-active', chip === button);
+            });
+
+            document.querySelectorAll('.archive-year').forEach(function (year) {
+                var visible = 0;
+
+                year.querySelectorAll('[data-tags]').forEach(function (row) {
+                    var show = !topic || row.dataset.tags.split(' ').indexOf(topic) !== -1;
+                    row.hidden = !show;
+                    if (show) visible += 1;
+                });
+
+                year.hidden = visible === 0;
+            });
+        });
     }
 
     /*
