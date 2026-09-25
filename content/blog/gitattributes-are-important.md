@@ -2,7 +2,7 @@
 title: ".gitattributes are important, but often forgotten!"
 showToc: false
 date: "2026-08-11"
-tags: ['PHP', 'Git', '.gitattributes','composer']
+tags: ['PHP', 'Git', 'Composer']
 description: ".gitattributes are important, but often forgotten"
 ---
 
