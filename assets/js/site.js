@@ -95,6 +95,23 @@
     }
 
     /*
+     * Header clock, always UK time.
+     */
+    var clock = document.querySelector('[data-clock]');
+
+    if (clock) {
+        var time = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' });
+
+        var tick = function () {
+            clock.textContent = "It's " + time.format(new Date()) + ' where I am';
+        };
+
+        tick();
+        clock.hidden = false;
+        setInterval(tick, 1000 * 30);
+    }
+
+    /*
      * Lightbox for the photos on the about page.
      */
     document.querySelectorAll('.lightbox-img').forEach(function (img) {

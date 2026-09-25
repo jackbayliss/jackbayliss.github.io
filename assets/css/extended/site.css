@@ -139,7 +139,7 @@ a:hover {
     color: var(--primary);
 }
 
-.site-location {
+.site-clock {
     font-family: var(--font-mono);
     font-size: 13px;
     color: var(--secondary);
@@ -972,7 +972,7 @@ a:hover {
 /* Small screens */
 
 @media (max-width: 900px) {
-    .site-location {
+    .site-clock {
         display: none;
     }
 
