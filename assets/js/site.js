@@ -103,7 +103,7 @@
         var time = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' });
 
         var tick = function () {
-            clock.textContent = "It's " + time.format(new Date()) + ' where I am';
+            clock.textContent = "It's " + time.format(new Date()) + ' for me';
         };
 
         tick();
