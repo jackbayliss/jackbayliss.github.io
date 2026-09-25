@@ -215,7 +215,18 @@
 
             code.insertBefore(caret, chars[length] ? chars[length].node : null);
             gutter.textContent = Array.from({ length: line }, function (_, i) { return i + 1; }).join('\n');
-            editor.scrollTop = Math.max(0, caret.offsetTop - editor.clientHeight + 140);
+            follow();
+        };
+
+        // Once the caret reaches the footer bar, scroll down two lines so it's never typing out of sight.
+        var follow = function () {
+            var lineHeight = parseFloat(getComputedStyle(code).lineHeight);
+            var limit = editor.getBoundingClientRect().bottom - parseFloat(getComputedStyle(editor).paddingBottom);
+            var overflow = caret.getBoundingClientRect().bottom - limit;
+
+            if (overflow > 0) {
+                editor.scrollTop += (Math.ceil(overflow / lineHeight) + 1) * lineHeight;
+            }
         };
 
         var reset = function () {
@@ -225,6 +236,7 @@
 
             line = 1;
             shown = 0;
+            editor.scrollTop = 0;
             reveal(0);
         };
 
