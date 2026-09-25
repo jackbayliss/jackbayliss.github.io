@@ -1,0 +1,11 @@
+- year: "2015"
+  text: Data analyst, first steps into PHP.
+- year: "2017"
+  text: Web and mobile apps, NHS clients included.
+- year: "2020"
+  text: Director of an IT company.
+- year: "2023"
+  text: Agency work on financial systems.
+- year: 2024, now
+  text: Supermarket systems, at serious scale.
+  current: true

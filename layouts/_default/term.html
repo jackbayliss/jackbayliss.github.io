@@ -1,13 +1,11 @@
 {{- define "main" }}
 
 <header class="page-intro">
-  <span class="label">{{ .Title }}</span>
-  <h1 class="page-intro-title">
-    Notes on PHP, <span class="muted">open source and software engineering, plus the odd</span> conference write-up.
-  </h1>
+  <a href="{{ "blog/" | absURL }}" class="label">&larr; All posts</a>
+  <h1 class="page-intro-title">Posts tagged <span class="muted">{{ .Title }}</span></h1>
 </header>
 
-{{- range .RegularPages.GroupByDate "2006" }}
+{{- range .Pages.GroupByDate "2006" }}
 <section class="section archive-year">
   <h2 class="label">{{ .Key }}</h2>
   <ul class="post-list">

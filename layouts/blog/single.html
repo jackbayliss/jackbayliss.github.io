@@ -1,0 +1,42 @@
+{{- define "main" }}
+
+<article class="post">
+  <aside class="post-aside">
+    <a href="{{ "blog/" | absURL }}" class="label">&larr; All posts</a>
+    <time class="label" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+  </aside>
+
+  <div class="post-body">
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{- if (.Param "ShowToc") }}
+    {{- partial "toc.html" . }}
+    {{- end }}
+
+    <div class="post-content">
+      {{- partial "anchored_headings.html" .Content -}}
+    </div>
+
+    <footer class="post-notes">
+      <p>Enjoyed the post but have a burning question? <a href="https://x.com/jackbayliss1996" target="_blank" rel="noopener">Message me on X</a>.</p>
+      <p class="muted">Found a bug or typo? <a href="https://github.com/jackbayliss/jackbayliss.github.io/blob/main/content/{{ replace .File.Path "\\" "/" }}?plain=1" target="_blank" rel="noopener">Submit a PR on GitHub</a>.</p>
+    </footer>
+
+    <nav class="post-pager" aria-label="More posts">
+      {{- with .PrevInSection }}
+      <a href="{{ .Permalink }}">
+        <span class="label">&larr; Older</span>
+        <span>{{ .Title }}</span>
+      </a>
+      {{- end }}
+      {{- with .NextInSection }}
+      <a href="{{ .Permalink }}" class="post-pager-newer">
+        <span class="label">Newer &rarr;</span>
+        <span>{{ .Title }}</span>
+      </a>
+      {{- end }}
+    </nav>
+  </div>
+</article>
+
+{{- end }}

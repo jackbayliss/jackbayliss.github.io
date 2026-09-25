@@ -1,0 +1,13 @@
+{{- $excerpt := .Description }}
+{{- if or (not $excerpt) (hasPrefix (lower .Title) (lower (strings.TrimSuffix "." $excerpt))) }}
+{{- $excerpt = .Summary | plainify | htmlUnescape }}
+{{- end }}
+<li>
+  <a href="{{ .Permalink }}" class="post-row">
+    <span class="post-row-body">
+      <span class="post-row-title">{{ .Title }}</span>
+      <span class="post-row-excerpt">{{ $excerpt | truncate 160 }}</span>
+    </span>
+    <time class="label" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan" }}</time>
+  </a>
+</li>

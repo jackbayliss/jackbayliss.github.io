@@ -6,7 +6,8 @@ enableRobotsTXT = true
 timeZone = "Europe/London"
 
 [params]
-  hideFooter = true
+  defaultTheme = "dark"
+  ShowCodeCopyButtons = true
   ShowDate = false
   description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
   images = ["/images/emoji.png"]
@@ -17,11 +18,6 @@ timeZone = "Europe/London"
   enabled = false
 
 [menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 1
   [[menu.main]]
     identifier = "about"
     name = "About"

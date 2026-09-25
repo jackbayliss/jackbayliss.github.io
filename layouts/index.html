@@ -1,18 +1,51 @@
 {{- define "main" }}
-{{- $posts := where site.RegularPages "Section" "blog" }}
-{{- $posts = $posts | first 3 }}
-{{- $postsHTML := "" }}
-{{- if $posts }}
-{{- $postsHTML = `<section class="card"><h2 class="card-heading">Latest Posts</h2><div class="recent-posts-list">` }}
-{{- range $posts }}
-{{- $postsHTML = printf `%s<a href="%s" class="recent-post-card"><span class="recent-post-title">%s</span><span class="recent-post-meta">%s</span></a>` $postsHTML .Permalink (htmlEscape .Title) (.Date.Format "2 Jan 2006") }}
-{{- end }}
-{{- $postsHTML = printf `%s</div><a href="/blog/" class="recent-posts-more">All posts &rarr;</a></section>` $postsHTML }}
-{{- end }}
+{{- $posts := (where site.RegularPages "Section" "blog").ByDate.Reverse | first 4 }}
 
-{{- if .Content }}
-<div class="post-content">
-  {{ replace .Content "<!--LATEST_POSTS-->" $postsHTML | safeHTML }}
-</div>
-{{- end }}
+<section class="hero">
+  <h1 class="hero-title" data-letters>Hi, I'm Jack.</h1>
+  <p class="hero-lead">
+    A software engineer from the Black Country 🇬🇧. I write mostly PHP, contribute to
+    <a href="https://github.com/search?q=is%3Apr+author%3Ajackbayliss+is%3Amerged&type=pullrequests" target="_blank" rel="noopener">open source</a>
+    and keep the systems behind England's 3rd largest supermarket ticking over.
+  </p>
+</section>
+
+<section class="section home-grid">
+  <div class="home-writing">
+    <div class="section-heading">
+      <span class="label">Writing</span>
+      <a href="{{ "blog/" | absURL }}" class="label">All posts &rarr;</a>
+    </div>
+    <ul class="post-list">
+      {{- range $posts }}
+      <li>
+        <a href="{{ .Permalink }}" class="post-row">
+          <span class="post-row-title">{{ .Title }}</span>
+          <time class="label" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+
+  <div>
+    <h2 class="label">Off the clock</h2>
+    <p>Cars, the gym and games. Also <a href="{{ "about/" | absURL }}">Swift</a>, my cat, who doesn't care about any of it.</p>
+  </div>
+
+  <div>
+    <h2 class="label">Elsewhere</h2>
+    <ul class="link-list">
+      <li><a href="https://github.com/jackbayliss" target="_blank" rel="noopener">GitHub &nearr;</a></li>
+      <li><a href="https://x.com/jackbayliss1996" target="_blank" rel="noopener">X / Twitter &nearr;</a></li>
+      <li><a href="mailto:jack@jackbayliss.com">Send a message &nearr;</a></li>
+      <li><a href="{{ "blog/index.xml" | absURL }}">RSS &nearr;</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="label">So far</h2>
+  {{- partial "timeline.html" . }}
+</section>
 {{- end }}

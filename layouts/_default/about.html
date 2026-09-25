@@ -1,0 +1,62 @@
+{{- define "main" }}
+
+<header class="about-intro">
+  <div class="page-intro">
+    <span class="label">{{ .Title }}</span>
+    <h1 class="page-intro-title">
+      Born in 1996, <span class="muted">grew up in <a href="https://en.wikipedia.org/wiki/Rowley_Regis" target="_blank" rel="noopener">Rowley Regis</a>, better known as the</span>
+      <a href="https://en.wikipedia.org/wiki/Black_Country" target="_blank" rel="noopener">Black Country</a>.
+      <span class="muted">Because of that, <a href="https://www.youtube.com/watch?v=wJHa5aN1Uus" target="_blank" rel="noopener">some people don't understand what I'm saying</a>.</span>
+    </h1>
+  </div>
+
+  <figure class="me">
+    <img src="/images/me.jpg" alt="Jack" class="lightbox-img">
+    <figcaption class="label">(This is what I look like mid PR....)</figcaption>
+  </figure>
+</header>
+
+<section class="section about-row">
+  <h2 class="label">Code</h2>
+  <p class="lead">Programming since 2015, mainly in PHP. I've dabbled with Ionic, React Native, Vue and Python, to name a few.</p>
+</section>
+
+<section class="section about-row">
+  <h2 class="label">Off the clock</h2>
+  <p class="lead">Cars, the gym and games.</p>
+</section>
+
+<section class="section">
+  <h2 class="label">Cars I've owned</h2>
+  <ol class="car-grid">
+    {{- range $index, $car := .Params.cars }}
+    <li class="car">
+      <img src="{{ $car.image }}" alt="{{ $car.name }}" class="lightbox-img" loading="lazy">
+      <span class="car-caption">
+        <span class="label">{{ printf "%02d" (add $index 1) }}</span>
+        <span>
+          <span class="car-name">{{ $car.name }}</span>
+          {{- with $car.note }}
+          <span class="car-note">{{ . }}</span>
+          {{- end }}
+        </span>
+      </span>
+    </li>
+    {{- end }}
+  </ol>
+</section>
+
+<section class="section about-row swift">
+  <h2 class="label">Swift</h2>
+  <img src="/images/swift.jpg" alt="Swift the cat" class="swift-photo lightbox-img" loading="lazy">
+  <p class="swift-caption">This is Swift, my cat. <span class="muted">He doesn't care about programming or cars.</span></p>
+</section>
+
+<section class="section about-row">
+  <h2 class="label">So far</h2>
+  <div class="timeline-rows">
+    {{- partial "timeline.html" . }}
+  </div>
+</section>
+
+{{- end }}

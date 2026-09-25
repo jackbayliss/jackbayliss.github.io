@@ -1,0 +1,8 @@
+<ol class="timeline">
+  {{- range site.Data.timeline }}
+  <li class="timeline-item">
+    <span class="label">{{ if .current }}<span class="dot" aria-hidden="true"></span>{{ end }}{{ .year }}</span>
+    <span>{{ .text }}</span>
+  </li>
+  {{- end }}
+</ol>
