@@ -198,28 +198,15 @@ a:hover {
     transform: translateY(-3.75px) rotate(-45deg);
 }
 
-/* Cursor */
+@media (pointer: fine) {
+    .hero-title,
+    .site-footer {
+        cursor: crosshair;
+    }
 
-.cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2000;
-    width: 16px;
-    height: 16px;
-    margin: -8px 0 0 -8px;
-    border: 1px solid var(--accent);
-    border-radius: 999px;
-    opacity: 0;
-    pointer-events: none;
-    transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
-}
-
-.cursor-ring.is-active {
-    width: 36px;
-    height: 36px;
-    margin: -18px 0 0 -18px;
-    opacity: 0.6;
+    .site-footer a {
+        cursor: pointer;
+    }
 }
 
 /* Footer */
@@ -242,7 +229,7 @@ a:hover {
     gap: 28px;
     padding: 28px max(var(--gap), (100% - var(--main-width)) / 2) 110px;
     overflow: hidden;
-    opacity: 0.35;
+    opacity: 0.6;
     transition: opacity 0.4s ease;
 }
 
@@ -263,8 +250,16 @@ a:hover {
     user-select: none;
 }
 
-.footer-code span {
-    transition: color 0.4s ease;
+.footer-code .char {
+    display: inline-block;
+    visibility: hidden;
+    transition: color 0.4s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+.footer-code .char.is-typed {
+    visibility: visible;
 }
 
 .caret {
@@ -282,9 +277,13 @@ a:hover {
     }
 }
 
+.dark .footer-code {
+    opacity: 0.35;
+}
+
 .site-footer:hover .footer-code,
 .site-footer.is-lit .footer-code {
-    opacity: 0.9;
+    opacity: 1;
 }
 
 .site-footer:hover .tok-keyword,
@@ -345,6 +344,7 @@ a:hover {
 }
 
 .hero-title {
+    position: relative;
     display: inline-block;
     margin: 0;
     font-size: 72px;
@@ -379,8 +379,8 @@ a:hover {
 
 .home-grid {
     display: grid;
-    grid-template-columns: 6fr 3fr 3fr;
-    gap: 32px;
+    grid-template-columns: 8fr 3fr;
+    gap: 32px 80px;
 }
 
 .home-grid p {
@@ -555,6 +555,36 @@ a:hover {
 
 .archive-year .post-row-title {
     font-size: 22px;
+}
+
+/* 404 */
+
+.not-found-code {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--secondary);
+}
+
+.not-found-code .tok-method {
+    color: var(--code-method);
+}
+
+.not-found-code .tok-string {
+    color: var(--code-string);
+}
+
+.not-found-links {
+    display: flex;
+    gap: 28px;
+    font-size: 18px;
+}
+
+.not-found-links a {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
 }
 
 /* About */

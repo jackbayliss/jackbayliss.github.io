@@ -1,0 +1,15 @@
+{{- define "main" }}
+
+<header class="page-intro">
+  <span class="label">404</span>
+  <h1 class="page-intro-title">
+    This page has popped out for a brew. <span class="muted">Or it never existed in the first place.</span>
+  </h1>
+  <p class="not-found-code"><span class="tok-method">abort</span>(404, <span class="tok-string">'Not here, bab.'</span>);</p>
+  <nav class="not-found-links" aria-label="Somewhere else">
+    <a href="{{ "" | absLangURL }}">&larr; Back home</a>
+    <a href="{{ "blog/" | absURL }}">Read the blog</a>
+  </nav>
+</header>
+
+{{- end }}

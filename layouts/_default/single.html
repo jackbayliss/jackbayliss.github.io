@@ -2,7 +2,12 @@
 
 <article class="page">
   <header class="page-intro">
+    {{- with .Params.intro }}
+    <span class="label">{{ $.Title }}</span>
+    <h1 class="page-intro-title">{{ . | safeHTML }}</h1>
+    {{- else }}
     <h1 class="page-intro-title">{{ .Title }}</h1>
+    {{- end }}
   </header>
 
   <div class="post-content">

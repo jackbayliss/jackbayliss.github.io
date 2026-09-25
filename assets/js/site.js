@@ -68,33 +68,6 @@
     }
 
     /*
-     * A soft ring that follows the cursor over links and the title.
-     */
-    if (finePointer && !reducedMotion) {
-        var ring = document.createElement('div');
-        ring.className = 'cursor-ring';
-        document.body.appendChild(ring);
-
-        var x = -100, y = -100, ringX = x, ringY = y;
-
-        document.addEventListener('pointermove', function (e) {
-            x = e.clientX;
-            y = e.clientY;
-        });
-
-        document.addEventListener('pointerover', function (e) {
-            ring.classList.toggle('is-active', !!e.target.closest('a, button, [data-letters], .lightbox-img'));
-        });
-
-        (function follow() {
-            ringX += (x - ringX) * 0.2;
-            ringY += (y - ringY) * 0.2;
-            ring.style.transform = 'translate3d(' + ringX + 'px, ' + ringY + 'px, 0)';
-            requestAnimationFrame(follow);
-        })();
-    }
-
-    /*
      * Header clock, always UK time.
      */
     var clock = document.querySelector('[data-clock]');
@@ -201,23 +174,50 @@
         var caret = document.createElement('span');
         caret.className = 'caret';
 
-        var render = function (length) {
-            var text = source.slice(0, length);
-            var lines = text.split('\n').length;
+        // Every character gets its own span so it can be revealed while typing,
+        // and knocked about when the pointer gets close.
+        var chars = [];
 
-            code.textContent = '';
+        tokenize(source).forEach(function (token) {
+            Array.from(token.text).forEach(function (char) {
+                if (char === '\n') {
+                    var newline = document.createTextNode('\n');
+                    code.appendChild(newline);
+                    chars.push({ node: newline, newline: true });
+                    return;
+                }
 
-            tokenize(text).forEach(function (token) {
                 var span = document.createElement('span');
-                if (token.type) span.className = 'tok-' + token.type;
-                span.textContent = token.text;
+                span.className = 'char' + (token.type ? ' tok-' + token.type : '');
+                span.textContent = char;
                 code.appendChild(span);
+                chars.push({ node: span });
+            });
+        });
+
+        var line = 1;
+        var shown = 0;
+
+        var reveal = function (length) {
+            for (; shown < length; shown++) {
+                var char = chars[shown];
+                if (char.newline) line += 1;
+                else char.node.classList.add('is-typed');
+            }
+
+            code.insertBefore(caret, chars[length] ? chars[length].node : null);
+            gutter.textContent = Array.from({ length: line }, function (_, i) { return i + 1; }).join('\n');
+            editor.scrollTop = Math.max(0, caret.offsetTop - editor.clientHeight + 140);
+        };
+
+        var reset = function () {
+            chars.forEach(function (char) {
+                if (!char.newline) char.node.classList.remove('is-typed');
             });
 
-            code.appendChild(caret);
-
-            gutter.textContent = Array.from({ length: lines }, function (_, i) { return i + 1; }).join('\n');
-            editor.scrollTop = editor.scrollHeight;
+            line = 1;
+            shown = 0;
+            reveal(0);
         };
 
         var footer = editor.closest('.site-footer');
@@ -227,33 +227,106 @@
         });
 
         if (reducedMotion) {
-            render(source.length);
+            reveal(chars.length);
         } else {
             var length = 0;
 
             var type = function () {
                 length += 1;
-                render(length);
+                reveal(length);
 
-                if (length < source.length) {
-                    var char = source[length - 1];
-                    return setTimeout(type, char === '\n' ? 220 : 25 + Math.random() * 55);
+                if (length < chars.length) {
+                    return setTimeout(type, chars[length - 1].newline ? 220 : 25 + Math.random() * 55);
                 }
 
                 setTimeout(function () {
                     length = 0;
-                    render(0);
+                    reset();
                     setTimeout(type, 800);
                 }, 5000);
             };
 
-            render(0);
+            reset();
 
             new IntersectionObserver(function (entries, observer) {
                 if (!entries[0].isIntersecting) return;
                 observer.disconnect();
                 type();
             }, { threshold: 0.3 }).observe(footer);
+        }
+
+        // Letters get knocked out of the way by the crosshair, then spring back.
+        if (finePointer && !reducedMotion) {
+            var pushed = [];
+            var pending = null;
+            var measured = false;
+
+            // Where each letter sits in the code never changes, so measure once (and again on resize).
+            var measure = function () {
+                var origin = code.getBoundingClientRect();
+
+                chars.forEach(function (char) {
+                    if (char.newline) return;
+
+                    var box = char.node.getBoundingClientRect();
+                    char.x = box.left - origin.left + box.width / 2;
+                    char.y = box.top - origin.top + box.height / 2;
+                });
+
+                measured = true;
+            };
+
+            var release = function () {
+                pushed.forEach(function (span) { span.style.transform = ''; });
+                pushed = [];
+            };
+
+            var scatter = function (e, radius, strength) {
+                if (!measured) measure();
+
+                var origin = code.getBoundingClientRect();
+                var px = e.clientX - origin.left;
+                var py = e.clientY - origin.top;
+
+                release();
+
+                chars.forEach(function (char, i) {
+                    if (char.newline || i >= shown) return;
+
+                    var dx = char.x - px;
+                    var dy = char.y - py;
+                    var distance = Math.hypot(dx, dy);
+
+                    if (distance > radius) return;
+
+                    var force = (1 - distance / radius) * strength;
+                    var angle = Math.atan2(dy, dx);
+                    var spin = ((i * 37) % 60) - 30;
+
+                    char.node.style.transform = 'translate(' + (Math.cos(angle) * force).toFixed(1) + 'px, ' + (Math.sin(angle) * force).toFixed(1) + 'px) rotate(' + (spin * force / strength).toFixed(1) + 'deg)';
+                    pushed.push(char.node);
+                });
+            };
+
+            window.addEventListener('resize', function () { measured = false; });
+
+            footer.addEventListener('pointermove', function (e) {
+                if (!pending) requestAnimationFrame(function () {
+                    scatter(pending, 64, 18);
+                    pending = null;
+                });
+
+                pending = e;
+            });
+
+            footer.addEventListener('pointerdown', function (e) {
+                if (e.target.closest('a')) return;
+
+                scatter(e, 150, 46);
+                setTimeout(release, 220);
+            });
+
+            footer.addEventListener('pointerleave', release);
         }
     }
 

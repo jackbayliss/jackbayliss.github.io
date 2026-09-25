@@ -2,9 +2,8 @@
 title: "Portfolio"
 description: "A selection of projects Jack Bayliss has built or contributed to, including Laravel applications, e-commerce platforms, mobile apps, and open-source packages."
 showToc: false
+intro: 'Projects I''ve led or contributed to, <span class="muted">mostly independently. By no means a complete list.</span>'
 ---
-
-A curated selection of projects I've led or contributed to - mostly independently. By no means a complete list.
 
 <div class="proj-grid">
 
