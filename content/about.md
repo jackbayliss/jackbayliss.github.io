@@ -3,7 +3,6 @@ title: "About"
 layout: about
 description: "Jack Bayliss is a PHP and Laravel developer from Rowley Regis located in the Black Country, England. Laravel contributor, open-source enthusiast."
 keywords: ["Jack Bayliss", "Laravel developer", "PHP developer", "Black Country", "Rowley Regis", "web developer"]
-images: ["/images/emoji.png"]
 cars:
   - name: Toyota Majesta
     note: Japanese import

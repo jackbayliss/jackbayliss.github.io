@@ -1,0 +1,12 @@
+{{- /* A 1200x630 share card with the page title, for pages without their own image. */ -}}
+{{- $mono := resources.Get "fonts/GeistMono-Regular.ttf" }}
+{{- $title := cond .IsHome "Hi, I'm Jack." .Title }}
+{{- $section := cond .IsHome "Software engineer" (cond (eq .Section "blog") "Blog" .Title) }}
+
+{{- $card := resources.Get "images/share-card.png" | images.Filter
+  (images.Text "jackbayliss.com" (dict "font" $mono "color" "#9a948a" "size" 24 "x" 80 "y" 80))
+  (images.Text $title (dict "font" (resources.Get "fonts/SchibstedGrotesk-Medium.ttf") "color" "#ede9e1" "size" 72 "linespacing" 10 "x" 80 "y" 150))
+  (images.Text (printf "Jack Bayliss · %s" $section) (dict "font" $mono "color" "#9a948a" "size" 24 "x" 108 "y" 548))
+}}
+
+{{- return $card }}

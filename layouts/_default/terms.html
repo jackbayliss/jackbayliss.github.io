@@ -1,0 +1,16 @@
+{{- define "main" }}
+
+<header class="page-intro">
+  <a href="{{ "blog/" | absURL }}" class="label">&larr; All posts</a>
+  <h1 class="page-intro-title">Tags <span class="muted">for everything I've written about.</span></h1>
+</header>
+
+<ul class="tag-cloud">
+  {{- range .Data.Terms.ByCount }}
+  <li>
+    <a href="{{ .Page.RelPermalink }}" class="chip">{{ .Page.Title }} <span class="muted">{{ .Count }}</span></a>
+  </li>
+  {{- end }}
+</ul>
+
+{{- end }}
