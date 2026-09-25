@@ -40,6 +40,7 @@
 
             var letter = document.createElement('span');
             letter.className = 'letter';
+            letter.style.setProperty('--i', title.children.length);
             letter.setAttribute('aria-hidden', 'true');
             letter.textContent = char;
             title.appendChild(letter);

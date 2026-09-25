@@ -98,6 +98,56 @@ a:hover {
     margin-bottom: 28px;
 }
 
+/* Page transitions */
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    .site-header {
+        view-transition-name: site-header;
+    }
+
+    ::view-transition-old(root) {
+        animation: page-out 0.2s ease-in both;
+    }
+
+    ::view-transition-new(root) {
+        animation: page-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) 0.12s both;
+    }
+
+    .hero-title .letter {
+        animation: letter-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+        animation-delay: calc(var(--i) * 45ms + 100ms);
+    }
+
+    .hero-lead {
+        animation: page-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s backwards;
+    }
+}
+
+@keyframes page-out {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes page-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+}
+
+@keyframes letter-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.35em) rotate(6deg);
+    }
+}
+
 /* Header */
 
 .site-nav {
