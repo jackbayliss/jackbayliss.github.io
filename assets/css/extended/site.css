@@ -18,6 +18,11 @@
 
     --accent: #c9531a;
 
+    --code-keyword: #7c4dcc;
+    --code-string: #1f7a4d;
+    --code-class: #1d5fbf;
+    --code-method: #9a6a00;
+
     --font-sans: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
 }
@@ -33,6 +38,11 @@
     --code-bg: #1c1b19;
     --border: #2c2a27;
     --accent: #ff8a4c;
+
+    --code-keyword: #c8b6ff;
+    --code-string: #9fe5c0;
+    --code-class: #9fd0ff;
+    --code-method: #ffd84d;
 }
 
 /* Base */
@@ -216,6 +226,7 @@ a:hover {
 
 .site-footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 16px;
     width: min(var(--main-width), 100% - var(--gap) * 2);
@@ -225,6 +236,54 @@ a:hover {
     font-family: var(--font-mono);
     font-size: 13px;
     color: var(--secondary);
+}
+
+.footer-code {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 28px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    white-space: pre;
+    overflow: hidden;
+}
+
+.footer-code code {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--secondary);
+}
+
+.footer-code code span {
+    transition: color 0.35s ease;
+}
+
+.footer-code:hover .tok-keyword,
+.footer-code.is-lit .tok-keyword { color: var(--code-keyword); }
+.footer-code:hover .tok-variable,
+.footer-code.is-lit .tok-variable { color: var(--accent); }
+.footer-code:hover .tok-string,
+.footer-code.is-lit .tok-string { color: var(--code-string); }
+.footer-code:hover .tok-class,
+.footer-code.is-lit .tok-class { color: var(--code-class); }
+.footer-code:hover .tok-method,
+.footer-code.is-lit .tok-method { color: var(--code-method); }
+.footer-code:hover .tok-punctuation,
+.footer-code.is-lit .tok-punctuation { color: var(--primary); }
+
+.caret {
+    width: 8px;
+    height: 18px;
+    margin-left: 2px;
+    background: var(--secondary);
+    animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 .site-footer-links {
@@ -1164,12 +1223,21 @@ a:hover {
         grid-column: auto;
     }
 
-    .site-footer {
-        flex-direction: column;
+    .footer-code {
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+
+    .caret {
+        height: 16px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .caret {
+        animation: none;
+    }
+
     #menu,
     #menu li,
     #menu-toggle span {

@@ -112,6 +112,95 @@
     }
 
     /*
+     * A line of PHP in the footer that types itself out, over and over.
+     */
+    var typer = document.querySelector('[data-typer]');
+
+    if (typer) {
+        var snippets = [
+            "Route::get('/', fn () => 'Alright!');",
+            "$jack->contribute(to: 'laravel');",
+            "collect($prs)->filter->merged();",
+            "User::where('name', 'Jack')->first();",
+            "dispatch(new ShipIt($feature));",
+            "Cache::remember('tea', 3600, $brew);",
+            "return view('home', ['bab' => true]);",
+        ];
+
+        var pattern = /('[^']*'?)|(\$\w+)|\b(return|new|fn|true|false)\b|(->|::)(\w+)|\b([A-Z]\w*)\b|\b([a-z_]\w*)(?=\()|([()[\]{};,=>])/g;
+
+        var tokenize = function (code) {
+            var tokens = [];
+            var last = 0;
+            var match;
+
+            pattern.lastIndex = 0;
+
+            while ((match = pattern.exec(code))) {
+                if (match.index > last) tokens.push({ text: code.slice(last, match.index) });
+
+                if (match[1]) tokens.push({ text: match[1], type: 'string' });
+                else if (match[2]) tokens.push({ text: match[2], type: 'variable' });
+                else if (match[3]) tokens.push({ text: match[3], type: 'keyword' });
+                else if (match[4]) tokens.push({ text: match[4], type: 'punctuation' }, { text: match[5], type: 'method' });
+                else if (match[6]) tokens.push({ text: match[6], type: 'class' });
+                else if (match[7]) tokens.push({ text: match[7], type: 'method' });
+                else tokens.push({ text: match[8], type: 'punctuation' });
+
+                last = pattern.lastIndex;
+            }
+
+            if (last < code.length) tokens.push({ text: code.slice(last) });
+
+            return tokens;
+        };
+
+        var render = function (code, length) {
+            typer.textContent = '';
+
+            tokenize(code.slice(0, length)).forEach(function (token) {
+                var span = document.createElement('span');
+                if (token.type) span.className = 'tok-' + token.type;
+                span.textContent = token.text;
+                typer.appendChild(span);
+            });
+        };
+
+        typer.parentElement.addEventListener('click', function () {
+            typer.parentElement.classList.toggle('is-lit');
+        });
+
+        if (reducedMotion) {
+            render(snippets[0], snippets[0].length);
+        } else {
+            var index = 0;
+            var length = 0;
+            var deleting = false;
+
+            (function step() {
+                var code = snippets[index];
+                var delay;
+
+                length += deleting ? -1 : 1;
+                render(code, length);
+
+                if (!deleting && length === code.length) {
+                    deleting = true;
+                    delay = 2200;
+                } else if (deleting && length === 0) {
+                    deleting = false;
+                    index = (index + 1) % snippets.length;
+                    delay = 500;
+                } else {
+                    delay = deleting ? 22 : 45 + Math.random() * 70;
+                }
+
+                setTimeout(step, delay);
+            })();
+        }
+    }
+
+    /*
      * Lightbox for the photos on the about page.
      */
     document.querySelectorAll('.lightbox-img').forEach(function (img) {

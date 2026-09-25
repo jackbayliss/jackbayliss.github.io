@@ -8,6 +8,7 @@ timeZone = "Europe/London"
 [params]
   defaultTheme = "dark"
   ShowCodeCopyButtons = true
+  disableScrollToTop = true
   ShowDate = false
   description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
   images = ["/images/emoji.png"]
