@@ -1,11 +1,11 @@
 - year: "2015"
   text: Data analyst, first steps into PHP.
 - year: "2017"
-  text: Web and mobile apps, NHS clients included.
+  text: Created web and mobile apps for various clients, including the NHS.
 - year: "2020"
   text: Director of an IT company.
 - year: "2023"
-  text: Agency work on financial systems.
+  text: Agency work, Laravel applications, lead dev for fintech software
 - year: 2024, now
   text: Supermarket systems, at serious scale.
   current: true

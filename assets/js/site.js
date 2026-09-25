@@ -112,22 +112,57 @@
     }
 
     /*
-     * A line of PHP in the footer that types itself out, over and over.
+     * The footer is a little code editor that never stops typing.
      */
-    var typer = document.querySelector('[data-typer]');
+    var editor = document.querySelector('[data-editor]');
 
-    if (typer) {
-        var snippets = [
-            "Route::get('/', fn () => 'Alright!');",
-            "$jack->contribute(to: 'laravel');",
-            "collect($prs)->filter->merged();",
-            "User::where('name', 'Jack')->first();",
-            "dispatch(new ShipIt($feature));",
-            "Cache::remember('tea', 3600, $brew);",
-            "return view('home', ['bab' => true]);",
-        ];
+    if (editor) {
+        var source = [
+            "<?php",
+            "",
+            "namespace App\\Models;",
+            "",
+            "class Jack extends Model",
+            "{",
+            "    protected $casts = [",
+            "        'accent' => BlackCountry::class,",
+            "        'beard' => 'ginger',",
+            "    ];",
+            "",
+            "    public function morning(): void",
+            "    {",
+            "        Tea::make()->milk()->sugars(2);",
+            "",
+            "        if (now()->isMonday()) {",
+            "            $this->coffee()->double();",
+            "        }",
+            "    }",
+            "",
+            "    public function work(): void",
+            "    {",
+            "        $this->pullRequests()",
+            "            ->where('repo', 'laravel/framework')",
+            "            ->each->hopeTaylorMerges();",
+            "    }",
+            "",
+            "    public function evening(): void",
+            "    {",
+            "        $this->gym()->skip(reason: 'leg day');",
+            "",
+            "        Swift::feed(); // he still won't care",
+            "",
+            "        $this->play(Game::random());",
+            "    }",
+            "",
+            "    public function greet(Person $person): string",
+            "    {",
+            "        return \"Alright, bab? {$person->name}\";",
+            "    }",
+            "}",
+        ].join('\n');
 
-        var pattern = /('[^']*'?)|(\$\w+)|\b(return|new|fn|true|false)\b|(->|::)(\w+)|\b([A-Z]\w*)\b|\b([a-z_]\w*)(?=\()|([()[\]{};,=>])/g;
+        var pattern = /(\/\/.*)|('[^'\n]*'?|"[^"\n]*"?)|(\$\w+)|(<\?php)|\b(namespace|use|class|extends|public|protected|function|return|if|void|string)\b|(->|::)(\w+)|\b([A-Z]\w*)\b|\b([a-z_]\w*)(?=\()|([()[\]{};,=>:])/g;
+        var types = [null, 'comment', 'string', 'variable', 'keyword', 'keyword'];
 
         var tokenize = function (code) {
             var tokens = [];
@@ -139,13 +174,19 @@
             while ((match = pattern.exec(code))) {
                 if (match.index > last) tokens.push({ text: code.slice(last, match.index) });
 
-                if (match[1]) tokens.push({ text: match[1], type: 'string' });
-                else if (match[2]) tokens.push({ text: match[2], type: 'variable' });
-                else if (match[3]) tokens.push({ text: match[3], type: 'keyword' });
-                else if (match[4]) tokens.push({ text: match[4], type: 'punctuation' }, { text: match[5], type: 'method' });
-                else if (match[6]) tokens.push({ text: match[6], type: 'class' });
-                else if (match[7]) tokens.push({ text: match[7], type: 'method' });
-                else tokens.push({ text: match[8], type: 'punctuation' });
+                if (match[6]) {
+                    tokens.push({ text: match[6], type: 'punctuation' }, { text: match[7], type: 'method' });
+                } else if (match[8]) {
+                    tokens.push({ text: match[8], type: 'class' });
+                } else if (match[9]) {
+                    tokens.push({ text: match[9], type: 'method' });
+                } else if (match[10]) {
+                    tokens.push({ text: match[10], type: 'punctuation' });
+                } else {
+                    for (var i = 1; i <= 5; i++) {
+                        if (match[i]) tokens.push({ text: match[i], type: types[i] });
+                    }
+                }
 
                 last = pattern.lastIndex;
             }
@@ -155,48 +196,64 @@
             return tokens;
         };
 
-        var render = function (code, length) {
-            typer.textContent = '';
+        var gutter = editor.querySelector('[data-gutter]');
+        var code = editor.querySelector('[data-code]');
+        var caret = document.createElement('span');
+        caret.className = 'caret';
 
-            tokenize(code.slice(0, length)).forEach(function (token) {
+        var render = function (length) {
+            var text = source.slice(0, length);
+            var lines = text.split('\n').length;
+
+            code.textContent = '';
+
+            tokenize(text).forEach(function (token) {
                 var span = document.createElement('span');
                 if (token.type) span.className = 'tok-' + token.type;
                 span.textContent = token.text;
-                typer.appendChild(span);
+                code.appendChild(span);
             });
+
+            code.appendChild(caret);
+
+            gutter.textContent = Array.from({ length: lines }, function (_, i) { return i + 1; }).join('\n');
+            editor.scrollTop = editor.scrollHeight;
         };
 
-        typer.parentElement.addEventListener('click', function () {
-            typer.parentElement.classList.toggle('is-lit');
+        var footer = editor.closest('.site-footer');
+
+        footer.addEventListener('click', function (e) {
+            if (!e.target.closest('a')) footer.classList.toggle('is-lit');
         });
 
         if (reducedMotion) {
-            render(snippets[0], snippets[0].length);
+            render(source.length);
         } else {
-            var index = 0;
             var length = 0;
-            var deleting = false;
 
-            (function step() {
-                var code = snippets[index];
-                var delay;
+            var type = function () {
+                length += 1;
+                render(length);
 
-                length += deleting ? -1 : 1;
-                render(code, length);
-
-                if (!deleting && length === code.length) {
-                    deleting = true;
-                    delay = 2200;
-                } else if (deleting && length === 0) {
-                    deleting = false;
-                    index = (index + 1) % snippets.length;
-                    delay = 500;
-                } else {
-                    delay = deleting ? 22 : 45 + Math.random() * 70;
+                if (length < source.length) {
+                    var char = source[length - 1];
+                    return setTimeout(type, char === '\n' ? 220 : 25 + Math.random() * 55);
                 }
 
-                setTimeout(step, delay);
-            })();
+                setTimeout(function () {
+                    length = 0;
+                    render(0);
+                    setTimeout(type, 800);
+                }, 5000);
+            };
+
+            render(0);
+
+            new IntersectionObserver(function (entries, observer) {
+                if (!entries[0].isIntersecting) return;
+                observer.disconnect();
+                type();
+            }, { threshold: 0.3 }).observe(footer);
         }
     }
 

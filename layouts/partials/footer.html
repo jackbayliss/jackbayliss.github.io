@@ -1,11 +1,16 @@
 <footer class="site-footer">
-    <div class="footer-code" aria-hidden="true"><code data-typer></code><span class="caret"></span></div>
-    <span>&copy; {{ now.Year }} {{ site.Title }}</span>
-    <nav class="site-footer-links" aria-label="Elsewhere">
-        <a href="https://github.com/jackbayliss" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://x.com/jackbayliss1996" target="_blank" rel="noopener">X</a>
-        <a href="{{ "blog/index.xml" | absURL }}">RSS</a>
-    </nav>
+    <div class="footer-code" aria-hidden="true" data-editor><pre data-gutter class="gutter"></pre><pre data-code></pre></div>
+
+    <div class="site-footer-bar">
+        <div class="site-footer-bar-inner">
+            <span>&copy; {{ now.Year }} {{ site.Title }}</span>
+            <nav class="site-footer-links" aria-label="Elsewhere">
+                <a href="https://github.com/jackbayliss" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://x.com/jackbayliss1996" target="_blank" rel="noopener">X</a>
+                <a href="{{ "blog/index.xml" | absURL }}">RSS</a>
+            </nav>
+        </div>
+    </div>
 </footer>
 
 {{- if (not site.Params.disableScrollToTop) }}

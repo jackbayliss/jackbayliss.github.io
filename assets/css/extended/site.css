@@ -225,13 +225,10 @@ a:hover {
 /* Footer */
 
 .site-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 16px;
-    width: min(var(--main-width), 100% - var(--gap) * 2);
-    margin: 0 auto;
-    padding: 32px 0 40px;
+    position: relative;
+    height: 340px;
+    margin-top: 56px;
+    overflow: hidden;
     border-top: 1px solid var(--border);
     font-family: var(--font-mono);
     font-size: 13px;
@@ -239,43 +236,42 @@ a:hover {
 }
 
 .footer-code {
+    position: absolute;
+    inset: 0;
     display: flex;
-    align-items: center;
-    width: 100%;
-    min-height: 28px;
-    margin-bottom: 24px;
-    font-size: 15px;
-    white-space: pre;
+    gap: 28px;
+    padding: 28px max(var(--gap), (100% - var(--main-width)) / 2) 110px;
     overflow: hidden;
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
 }
 
-.footer-code code {
+.footer-code pre {
+    flex-shrink: 0;
+    margin: 0;
     font-family: inherit;
-    font-size: inherit;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre;
     color: var(--secondary);
 }
 
-.footer-code code span {
-    transition: color 0.35s ease;
+.footer-code .gutter {
+    min-width: 2ch;
+    text-align: right;
+    color: var(--tertiary);
+    user-select: none;
 }
 
-.footer-code:hover .tok-keyword,
-.footer-code.is-lit .tok-keyword { color: var(--code-keyword); }
-.footer-code:hover .tok-variable,
-.footer-code.is-lit .tok-variable { color: var(--accent); }
-.footer-code:hover .tok-string,
-.footer-code.is-lit .tok-string { color: var(--code-string); }
-.footer-code:hover .tok-class,
-.footer-code.is-lit .tok-class { color: var(--code-class); }
-.footer-code:hover .tok-method,
-.footer-code.is-lit .tok-method { color: var(--code-method); }
-.footer-code:hover .tok-punctuation,
-.footer-code.is-lit .tok-punctuation { color: var(--primary); }
+.footer-code span {
+    transition: color 0.4s ease;
+}
 
 .caret {
-    width: 8px;
-    height: 18px;
-    margin-left: 2px;
+    display: inline-block;
+    width: 0.6em;
+    height: 1.2em;
+    vertical-align: text-bottom;
     background: var(--secondary);
     animation: caret-blink 1s steps(1) infinite;
 }
@@ -284,6 +280,43 @@ a:hover {
     50% {
         opacity: 0;
     }
+}
+
+.site-footer:hover .footer-code,
+.site-footer.is-lit .footer-code {
+    opacity: 0.9;
+}
+
+.site-footer:hover .tok-keyword,
+.site-footer.is-lit .tok-keyword { color: var(--code-keyword); }
+.site-footer:hover .tok-variable,
+.site-footer.is-lit .tok-variable { color: var(--accent); }
+.site-footer:hover .tok-string,
+.site-footer.is-lit .tok-string { color: var(--code-string); }
+.site-footer:hover .tok-class,
+.site-footer.is-lit .tok-class { color: var(--code-class); }
+.site-footer:hover .tok-method,
+.site-footer.is-lit .tok-method { color: var(--code-method); }
+.site-footer:hover .tok-punctuation,
+.site-footer.is-lit .tok-punctuation { color: var(--primary); }
+.site-footer:hover .tok-comment,
+.site-footer.is-lit .tok-comment { color: var(--secondary); font-style: italic; }
+
+.site-footer-bar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 56px 0 32px;
+    background: linear-gradient(to bottom, transparent, var(--theme) 50%);
+}
+
+.site-footer-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: min(var(--main-width), 100% - var(--gap) * 2);
+    margin: 0 auto;
 }
 
 .site-footer-links {
@@ -1223,13 +1256,12 @@ a:hover {
         grid-column: auto;
     }
 
-    .footer-code {
-        margin-bottom: 8px;
-        font-size: 13px;
+    .site-footer {
+        height: 300px;
     }
 
-    .caret {
-        height: 16px;
+    .footer-code pre {
+        font-size: 12px;
     }
 }
 
