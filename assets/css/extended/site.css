@@ -627,6 +627,10 @@ a:hover {
     gap: 32px;
 }
 
+.archive-year {
+    grid-template-columns: 80px 1fr;
+}
+
 .archive-year > .label,
 .about-row > .label {
     align-self: start;
