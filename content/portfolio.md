@@ -7,6 +7,7 @@ layout: portfolio
 currently: 'Working on systems for <strong>Asda</strong>.'
 confidential: 'Some client work isn''t named here out of respect for client confidentiality.'
 archived: 'Older work that''s no longer live on the web.'
+opensource: 'Want to see some code? Most client work is private, but you can browse my <a href="https://github.com/search?q=is%3Apr+author%3Ajackbayliss+is%3Amerged&type=pullrequests" target="_blank" rel="noopener">open source contributions</a>, including to Laravel, on GitHub.'
 projects:
   - name: "Johnson Test Papers"
     url: "https://web.archive.org/web/20230524090835/https://www.johnsontestpapers.com/"

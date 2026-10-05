@@ -1260,6 +1260,14 @@ a:hover {
     color: var(--primary);
 }
 
+.section-note a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
 .section > .section-note:last-child {
     margin-bottom: 0;
 }
