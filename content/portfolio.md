@@ -62,7 +62,7 @@ projects:
     stack: ["Laravel", "Inertia"]
   - name: "Estate Agency Management System"
     status: confidential
-    description: "Management platform for estate agents. Reduced mobile-uploaded images from 20 MB to 2 KB among other features."
+    description: "Management platform for estate agents."
   - name: "Workforce CRM"
     status: confidential
     description: "CRM with lat/lng calculations to find the nearest available staff members, data exports, and more."
