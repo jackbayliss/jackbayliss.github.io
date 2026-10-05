@@ -1243,6 +1243,27 @@ a:hover {
     text-decoration: none;
 }
 
+.project-card.is-static:hover {
+    border-color: var(--border);
+}
+
+.section-note {
+    max-width: 720px;
+    margin: 0 0 28px;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--secondary);
+}
+
+.section-note strong {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.section > .section-note:last-child {
+    margin-bottom: 0;
+}
+
 .project-name {
     font-size: 19px;
     font-weight: 500;

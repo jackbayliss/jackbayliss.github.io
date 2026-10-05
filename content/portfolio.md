@@ -4,6 +4,9 @@ description: "A selection of projects Jack Bayliss has built or contributed to, 
 showToc: false
 intro: 'Projects I''ve led or contributed to, <span class="muted">mostly independently. By no means a complete list.</span>'
 layout: portfolio
+currently: 'Working on systems for <strong>Asda</strong>.'
+confidential: 'Some client work isn''t named here out of respect for client confidentiality.'
+archived: 'Older work that''s no longer live on the web.'
 projects:
   - name: "Johnson Test Papers"
     url: "https://web.archive.org/web/20230524090835/https://www.johnsontestpapers.com/"
@@ -57,21 +60,17 @@ projects:
     status: live
     description: "White-label platform for tracking staff competencies and skills. Built with Laravel and InertiaJS."
     stack: ["Laravel", "Inertia"]
-  - name: "Board Clever"
-    url: "https://boardclever.co.uk/"
-    status: live
-    description: "Estate agent management system. Reduced mobile-uploaded images from 20 MB to 2 KB among other features."
-  - name: "On Call Portal"
-    url: "https://oncallsecurity.com/"
-    status: live
-    description: "CRM with lat/lng calculations for nearest staff members, data exports, and more."
-  - name: "Add Working Capital"
-    url: "https://addworkingcapital.com/"
-    status: live
-    description: "Secure inventory finance portal for car dealerships: stock financing, credit line access, and document submission."
-  - name: "Pipekit - Shopify & ERP Integration"
-    url: "https://www.pipekit.co.uk/"
-    status: live
-    description: "Custom Shopify integration syncing 35,000+ products between a proprietary ERP and Shopify at scale."
+  - name: "Estate Agency Management System"
+    status: confidential
+    description: "Management platform for estate agents. Reduced mobile-uploaded images from 20 MB to 2 KB among other features."
+  - name: "Workforce CRM"
+    status: confidential
+    description: "CRM with lat/lng calculations to find the nearest available staff members, data exports, and more."
+  - name: "Inventory Finance Portal"
+    status: confidential
+    description: "Secure finance portal for car dealerships: stock financing, credit line access, and document submission."
+  - name: "Shopify & ERP Integration"
+    status: confidential
+    description: "Custom integration syncing 35,000+ products between a proprietary ERP and Shopify at scale."
     stack: ["Shopify"]
 ---

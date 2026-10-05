@@ -1,11 +1,19 @@
 {{- define "main" }}
 {{- $live := where .Params.projects "status" "live" }}
+{{- $confidential := where .Params.projects "status" "confidential" }}
 {{- $archived := where .Params.projects "status" "archived" }}
 
 <header class="page-intro">
   <span class="label">{{ .Title }}</span>
   <h1 class="page-intro-title">{{ .Params.intro | safeHTML }}</h1>
 </header>
+
+{{- with .Params.currently }}
+<section class="section">
+  <h2 class="label"><span class="dot" aria-hidden="true"></span>Currently</h2>
+  <p class="section-note">{{ . | safeHTML }}</p>
+</section>
+{{- end }}
 
 <section class="section">
   <h2 class="label"><span class="dot" aria-hidden="true"></span>Live · {{ len $live }}</h2>
@@ -26,8 +34,35 @@
   </ul>
 </section>
 
+{{- with $confidential }}
+<section class="section">
+  <h2 class="label">Confidential · {{ len . }}</h2>
+  {{- with $.Params.confidential }}
+  <p class="section-note">{{ . | safeHTML }}</p>
+  {{- end }}
+  <ul class="project-grid">
+    {{- range . }}
+    <li>
+      <div class="project-card is-static">
+        <span class="project-name">{{ .name }}</span>
+        <span class="project-description">{{ .description }}</span>
+        {{- with .stack }}
+        <span class="project-stack">
+          {{- range . }}<span>{{ . }}</span>{{ end -}}
+        </span>
+        {{- end }}
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+
 <section class="section">
   <h2 class="label">Archived · {{ len $archived }}</h2>
+  {{- with $.Params.archived }}
+  <p class="section-note">{{ . | safeHTML }}</p>
+  {{- end }}
   <ul class="post-list">
     {{- range $archived }}
     <li>
