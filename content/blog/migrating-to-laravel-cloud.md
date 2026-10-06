@@ -38,9 +38,11 @@ The one I use the most is `isManagedQueue()`, locally its always false so you ca
 
 ## Forwarding queues
 
-If all your queues are managed, you don't really need any of this, just set `QUEUE_CONNECTION=cloud` and you're done.
+There's a couple of reasons you'd want this.
 
-But if you're like us, and running a mix ie some queues on managed queues and the rest still on database/redis (while you move things over, or because you want to) then `cloud` isn't your default connection. So jobs on queues like `emails` and `podcasts` need sending to the `cloud` connection, and everything else stays where it is. You could add `onConnection('cloud')` to every job.. but that's a lot of jobs 💀 Fifo managed queues automatically prefix .fifo so you may want to use a certain name locally, but for Cloud use a fifo queue.
+First, if you're like us and running a mix ie some queues on managed queues and the rest still on database/redis (while you move things over, or because you want to) then `cloud` isn't your default connection. So jobs on queues like `emails` and `podcasts` need sending to the `cloud` connection, and everything else stays where it is. You could add `onConnection('cloud')` to every job.. but that's a lot of jobs 💀
+
+Second, names. Managed FIFO queues end in `.fifo`, so you might have `podcasts` locally but `podcasts.fifo` on Cloud. Even if all your queues are managed, you still need something to map one to the other.
 
 So I [added `Queue::forward()`](https://github.com/laravel/framework/pull/61188) which lets you send a queue to a different queue and/or connection:
 
@@ -49,8 +51,8 @@ use Illuminate\Support\Facades\Queue;
 
 Queue::forward('reports', connection: 'cloud');
 
-// You can rename it too...
-Queue::forward('reports', 'audit', 'cloud');
+// You can rename it too, handy for fifo queues...
+Queue::forward('podcasts', 'podcasts.fifo', 'cloud');
 
 // Or a load at once
 Queue::forward([
