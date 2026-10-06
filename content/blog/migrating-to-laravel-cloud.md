@@ -111,7 +111,7 @@ Event::listen(function (Looping $event) {
 });
 ```
 
-Also keep an eye on `--memory` for `queue:work`, it defaults to 128MB no matter how big your container is, so workers can end up restarting way more than they need to. Annoyingly Cloud doesn't let you pass flags to the managed workers, so you can't just bump it.. you'll have to extend the `WorkCommand` and set the memory yourself, which is a bit meh.
+Memory caught us out too. `queue:work` defaults to 128MB, even if your container has loads more, so the workers kept restarting for no real reason. You can't pass `--memory` to managed workers either, so the only way round it at the minute is extending the `WorkCommand`. Not ideal, but it works.
 
 And if you show queue sizes anywhere, make sure you're checking the `cloud` connection, otherwise you'll be looking at 0 wondering where everything went. The totals are handy for that:
 
