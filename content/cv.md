@@ -1,16 +1,16 @@
 ---
 title: "CV"
 layout: cv
-description: "The CV of Jack Bayliss, a Laravel developer with 10 years' experience and a top 13 all-time contributor to the Laravel framework."
-intro: 'Laravel developer with 10 years'' experience, <span class="muted">and a top 13 all-time contributor to the</span> <a href="https://github.com/laravel/framework/commits?author=jackbayliss" target="_blank" rel="noopener">Laravel framework</a>.'
-summary: 'Most of my framework PRs started as real problems I hit at work. <span class="muted">Particularly with queues, at the kind of scale a major UK supermarket brings.</span>'
+description: "Jack Bayliss's work history: a Laravel developer of 10 years and a regular contributor to the Laravel framework."
+intro: 'Laravel developer, <span class="muted">currently at Fusions PIM and contributing to the</span> <a href="https://github.com/laravel/framework/commits?author=jackbayliss" target="_blank" rel="noopener">Laravel framework</a> <span class="muted">in my spare time.</span>'
+summary: 'Most of my framework PRs started as real problems I hit at work. <span class="muted">A lot of them around queues, which get a proper workout on the platform I work on day to day.</span>'
 experience:
   - role: Software Developer
     company: Fusions PIM
     dates: 2024 to present
     points:
-      - "Feature work on a large Laravel platform for the UK's third-largest supermarket, with queues at serious scale."
-      - "Owned the move to Laravel Cloud from start to finish."
+      - "Working on a large Laravel platform used by one of the UK's biggest supermarkets, much of it around queues."
+      - "Led our move to Laravel Cloud, which I <a href=\"/blog/migrating-to-laravel-cloud/\">wrote about here</a>."
   - role: Software Developer
     company: Cloud Construct
     dates: 2023 to 2024
@@ -31,12 +31,12 @@ experience:
     dates: 2016 to 2017
     points:
       - "Where it started: internal systems, reporting and my first steps into PHP."
-opensource: 'I contribute to open source regularly, and it feeds directly into my day-to-day work. <span class="muted">Alongside the framework, I maintain laravel-dom-assertions and contribute across the wider Laravel ecosystem. See more on <a href="https://github.com/jackbayliss" target="_blank" rel="noopener">GitHub</a>.</span>'
+opensource: 'I contribute to open source in my spare time, mostly the Laravel framework. <span class="muted">I also maintain laravel-dom-assertions and chip in across the wider Laravel ecosystem. It''s all on <a href="https://github.com/jackbayliss" target="_blank" rel="noopener">GitHub</a>.</span>'
 skills: 'PHP, Laravel, Livewire, Pest and MySQL. <span class="muted">Also Vue, React, React Native, Python and AWS.</span>'
 education:
   - name: HNC, Computing and Systems Development
     year: "2017"
   - name: BTEC Level 3 Extended Diploma, Software & Games Development
     year: "2015"
-contact: 'Interested, or want the full version? <span class="muted">Email me at</span> <a href="mailto:cv@jackbayliss.com?subject=CV%20request">cv@jackbayliss.com</a><span class="muted">.</span>'
+contact: 'Fancy a chat about Laravel? <span class="muted">Drop me a line at</span> <a href="mailto:jack@jackbayliss.com">jack@jackbayliss.com</a><span class="muted">.</span>'
 ---
