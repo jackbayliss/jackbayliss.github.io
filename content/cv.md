@@ -38,5 +38,5 @@ education:
     year: "2017"
   - name: BTEC Level 3 Extended Diploma, Software & Games Development
     year: "2015"
-contact: 'Fancy a chat about Laravel? <span class="muted">Drop me a line at</span> <a href="mailto:jack@jackbayliss.com">jack@jackbayliss.com</a><span class="muted">.</span>'
+contact: 'Not currently looking. <span class="muted">Always up for a chat about Laravel though, or anything genuinely interesting, at</span> <a href="mailto:jack@jackbayliss.com">jack@jackbayliss.com</a><span class="muted">.</span>'
 ---
