@@ -1,0 +1,79 @@
+{{- /* Structured data: who I am on every page, plus whatever the current page is. */ -}}
+
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+
+{{- $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#person" site.Home.Permalink)
+  "name" site.Params.author
+  "url" site.Home.Permalink
+  "image" ("images/me.jpg" | absURL)
+  "jobTitle" "Software Developer"
+  "description" site.Params.description
+  "homeLocation" (dict "@type" "Place" "name" "Black Country, England")
+  "knowsAbout" (slice "PHP" "Laravel" "Livewire" "Pest" "MySQL" "Open source")
+  "sameAs" site.Params.schema.sameAs
+}}
+
+{{- $author := dict "@id" (index $person "@id") }}
+
+{{- $graph := slice $person }}
+
+{{- if .IsHome }}
+  {{- $graph = $graph | append (dict
+    "@type" "WebSite"
+    "@id" (printf "%s#website" site.Home.Permalink)
+    "name" site.Title
+    "url" site.Home.Permalink
+    "description" site.Params.description
+    "inLanguage" site.Language.LanguageCode
+    "publisher" $author
+  ) }}
+{{- else if in (slice "about" "cv") .Layout }}
+  {{- $graph = $graph | append (dict
+    "@type" "ProfilePage"
+    "url" .Permalink
+    "name" (printf "%s | %s" .Title site.Title)
+    "description" .Description
+    "mainEntity" $author
+  ) }}
+{{- else if and .IsPage (eq .Section "blog") }}
+  {{- $post := dict
+    "@type" "BlogPosting"
+    "headline" .Title
+    "description" .Description
+    "url" .Permalink
+    "mainEntityOfPage" .Permalink
+    "datePublished" (.Date.Format $ISO8601)
+    "dateModified" (.Lastmod.Format $ISO8601)
+    "wordCount" .WordCount
+    "keywords" .Params.tags
+    "inLanguage" site.Language.LanguageCode
+    "author" $author
+    "publisher" $author
+  }}
+
+  {{- with partial "_funcs/get-page-images" . }}
+    {{- $post = merge $post (dict "image" (index . 0).Permalink) }}
+  {{- end }}
+
+  {{- $graph = $graph | append $post (dict
+    "@type" "BreadcrumbList"
+    "itemListElement" (slice
+      (dict "@type" "ListItem" "position" 1 "name" "Blog" "item" ("blog/" | absURL))
+      (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink)
+    )
+  ) }}
+{{- else if and .IsSection (eq .Section "blog") }}
+  {{- $graph = $graph | append (dict
+    "@type" "Blog"
+    "url" .Permalink
+    "name" (printf "%s | %s" .Title site.Title)
+    "description" .Description
+    "author" $author
+  ) }}
+{{- end }}
+
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify (dict "indent" "  ") | safeJS }}
+</script>

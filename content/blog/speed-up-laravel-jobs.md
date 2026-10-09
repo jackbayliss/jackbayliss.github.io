@@ -3,6 +3,8 @@ title: "Speeding up Laravel Jobs"
 showToc: true
 date: 2025-04-06
 tags: ['PHP', 'Laravel', 'Queue', 'Performance']
+aliases:
+  - /post/speed-up-laravel-jobs
 description: "Learn how to reduce Laravel queue job payload size by stripping loaded Eloquent relationships using the WithoutRelations attribute or withoutRelations() method, improving queue throughput."
 ---
 

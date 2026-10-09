@@ -5,18 +5,39 @@ theme = "PaperMod"
 enableRobotsTXT = true
 timeZone = "Europe/London"
 
+[taxonomies]
+  tag = "tags"
+
 [params]
   defaultTheme = "dark"
   ShowCodeCopyButtons = true
   disableScrollToTop = true
   ShowDate = false
-  description = "Jack Bayliss - PHP and Laravel developer from the Black Country, England."
+  description = "Jack Bayliss is a PHP and Laravel developer from the Black Country, England, and a regular contributor to the Laravel framework."
   images = ["/images/emoji.png"]
   author = "Jack Bayliss"
   canonicalURL = true
 
+[params.assets]
+  theme_color = "#141312"
+  msapplication_TileColor = "#141312"
+
+[params.social]
+  twitter = "jackbayliss1996"
+
+[params.schema]
+  sameAs = ["https://github.com/jackbayliss", "https://x.com/jackbayliss1996"]
+
 [params.profileMode]
   enabled = false
+
+# Tag archives are thin lists of posts, so keep them out of search results.
+[[cascade]]
+  robotsNoIndex = true
+  [cascade.sitemap]
+    disable = true
+  [cascade._target]
+    kind = "{taxonomy,term}"
 
 [menu]
   [[menu.main]]
@@ -27,7 +48,7 @@ timeZone = "Europe/London"
   [[menu.main]]
     identifier = "blog"
     name = "Blog"
-    url = "/blog"
+    url = "/blog/"
     weight = 3
   [[menu.main]]
     identifier = "portfolio"
@@ -40,7 +61,7 @@ timeZone = "Europe/London"
     url = "/cv/"
     weight = 5
 
-  [markup]
+[markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true

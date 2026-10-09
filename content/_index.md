@@ -1,3 +1,3 @@
 ---
-title: "Home | Jack Bayliss"
+title: "Jack Bayliss - PHP & Laravel Developer"
 ---
