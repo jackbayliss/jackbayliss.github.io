@@ -1531,3 +1531,21 @@ a:hover {
         transition: none;
     }
 }
+
+/* CV */
+
+.cv-row:hover .post-row-title {
+    color: inherit;
+}
+
+.cv-points {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--secondary);
+}
+
+.cv-points li + li {
+    margin-top: 6px;
+}

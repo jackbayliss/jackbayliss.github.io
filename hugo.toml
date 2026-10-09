@@ -34,6 +34,11 @@ timeZone = "Europe/London"
     name = "Portfolio"
     url = "/portfolio/"
     weight = 4
+  [[menu.main]]
+    identifier = "cv"
+    name = "CV"
+    url = "/cv/"
+    weight = 5
 
   [markup]
   [markup.goldmark]

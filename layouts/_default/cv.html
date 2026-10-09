@@ -1,0 +1,74 @@
+{{- define "main" }}
+
+<header class="page-intro">
+  <span class="label">{{ .Title }}</span>
+  <h1 class="page-intro-title">{{ .Params.intro | safeHTML }}</h1>
+</header>
+
+{{- with .Params.summary }}
+<section class="section about-row">
+  <h2 class="label">Summary</h2>
+  <p class="lead">{{ . | safeHTML }}</p>
+</section>
+{{- end }}
+
+<section class="section">
+  <h2 class="label">Experience</h2>
+  <ul class="post-list">
+    {{- range .Params.experience }}
+    <li class="post-row cv-row">
+      <span class="post-row-body">
+        <span class="post-row-title">{{ .role }}, {{ .company }}</span>
+        <ul class="cv-points">
+          {{- range .points }}
+          <li>{{ . | safeHTML }}</li>
+          {{- end }}
+        </ul>
+      </span>
+      <span class="label">{{ .dates }}</span>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+
+{{- with .Params.opensource }}
+<section class="section about-row">
+  <h2 class="label">Open source</h2>
+  <p class="lead">{{ . | safeHTML }}</p>
+</section>
+{{- end }}
+
+{{- with .Params.skills }}
+<section class="section about-row">
+  <h2 class="label">Skills</h2>
+  <p class="lead">{{ . | safeHTML }}</p>
+</section>
+{{- end }}
+
+<section class="section">
+  <h2 class="label">Education</h2>
+  <ul class="post-list">
+    {{- range .Params.education }}
+    <li class="post-row cv-row">
+      <span class="post-row-body">
+        <span class="post-row-title">{{ .name }}</span>
+        {{- with .from }}
+        <span class="post-row-excerpt">{{ . }}</span>
+        {{- end }}
+      </span>
+      {{- with .year }}
+      <span class="label">{{ . }}</span>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+</section>
+
+{{- with .Params.contact }}
+<section class="section about-row">
+  <h2 class="label">Get in touch</h2>
+  <p class="lead">{{ . | safeHTML }}</p>
+</section>
+{{- end }}
+
+{{- end }}
