@@ -1,12 +1,12 @@
 ---
-title: "The importance of reading the laravel framework releases"
+title: "The importance of reading the Laravel framework releases"
 showToc: true
 date: 2026-10-11
 tags: ['PHP', 'Laravel', 'Releases', 'Career']
-description: "The importance of reading the laravel framework releases."
+description: "Why reading the Laravel framework release notes is worth your time, and how a single release can let you delete code from your app."
 ---
 
-One superpower that can really help your Laravel career, and with your application in general is reading the Laravel framework releases.
+One superpower that can really help your Laravel career, and your application in general, is reading the Laravel framework releases.
 
 ## Framework vs. skeleton
 
@@ -30,4 +30,6 @@ This is also something AI can help you with, for example by summarising a releas
 
 ## Wrapping up
 
-Make it a habit: Generally a realease happens every Tuesday weekly (though sometimes it can be a Wednesday).. make a calendar entry so you don't forget and skim the releases when they land, and ask yourself "could this simplify something in my app?" Even if the answer is usually no, the one time it's yes will make it worth it. This basically means your app is less complicated in the long run, so for sure worth it.
+Make it a habit. Generally a release lands every Tuesday (though sometimes it can be a Wednesday), so make a calendar entry so you don't forget, skim the releases when they land, and ask yourself "could this simplify something in my app?" Even if the answer is usually no, the one time it's yes will make it worth it.
+
+Over time, that means your app is less complicated in the long run, so it's well worth the few minutes.
