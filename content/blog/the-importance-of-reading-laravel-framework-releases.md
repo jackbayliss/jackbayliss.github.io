@@ -6,7 +6,7 @@ tags: ['PHP', 'Laravel', 'Releases', 'Career']
 description: "Why reading the Laravel framework release notes is worth your time, and how a single release can let you delete code from your app."
 ---
 
-One superpower that can really help your Laravel career, and your application in general, is reading the Laravel framework releases.
+One superpower that can really help your Laravel career, and your application in general, is reading releases of the software you rely on, for example laravel/framework.
 
 ## Framework vs. skeleton
 
