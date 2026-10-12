@@ -45,4 +45,4 @@ Here's an example:
 
 In my opinion, it's similar to CS styling, it ensures all the line endings are correct... it helps the end user. The most important one is the export-ignore lines, if you have a 20mb art file in your package, without it it's being shipped to EVERYONE requiring it, resulting in longer composer install times and data usage. I like to think of "every little helps".. the less size, the easier and more accessible it is right?
 
-On that note... perhaps some CI tool would be nice for this? Just a super small workflow that checks all the usual suspects?
+On that note... To create, reformat, and validate the `export-ignore` directives of a PHP packages, the [lean-package-validator](https://github.com/raphaelstolt/lean-package-validator) is quite handy.
